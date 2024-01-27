@@ -17,8 +17,14 @@ module.exports = {
 		hot: true,
 	},
 	plugins: [
-		new HtmlWebpackPlugin({ template: "./src/index.html" }),
-		new HtmlWebpackPlugin({ template: "./src/recipes.html" })
+		new HtmlWebpackPlugin({
+			template: "./src/index.html",
+			filename: "index.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/recipes.html",
+			filename: "recipes.html"
+		}),
 	],
 	module: {
 		rules: [
