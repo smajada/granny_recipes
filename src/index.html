@@ -1,14 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap w/ Webpack</title>
-  </head>
-  <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Webpack!</h1>
-      <button class="btn btn-primary">Primary button</button>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap w/ Webpack</title>
+</head>
+
+<body class="bg-dark">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner opacity-25">
+      <div class="carousel-item active">
+        <img src="./assets/table_food_2_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
+      </div>
+      <div class="carousel-item">
+        <img src="./assets/cutting_tomatos_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
+      </div>
+      <div class="carousel-item">
+        <img src="./assets/table_food_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
+      </div>
+      <div class="carousel-item">
+        <img src="./assets/vegetables_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
+      </div>
     </div>
-  </body>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</body>
+
 </html>
