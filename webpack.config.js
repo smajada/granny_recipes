@@ -17,10 +17,10 @@ module.exports = {
 		hot: true,
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: "./src/index.html",
-			filename: "index.html"
-		}),
+		// new HtmlWebpackPlugin({
+		// 	template: "./src/index.html",
+		// 	filename: "index.html"
+		// }),
 		new HtmlWebpackPlugin({
 			template: "./src/discover_recipes.html",
 			filename: "discover_recipes.html"
