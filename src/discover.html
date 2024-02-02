@@ -4,10 +4,12 @@
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
    <title>Discover</title>
 </head>
 
 <body>
+   <!-- Navbar menu and Logo -->
    <nav class="navbar navbar-expand-lg bg-beige d-flex justify-content-between">
       <div class="ms-4">
          <a class="navbar-brand" href="/">
@@ -47,18 +49,36 @@
          </div>
       </div>
    </nav>
-   <h1 class="my-4 pb-5 text-center">Discover</h1>
 
+   <!-- Section title -->
+   <div class="py-4 border-bottom-brown">
+      <h1 class="text-center">Discover</h1>
+   </div>
+   
+   <!-- Main page contianer -->
    <div class="container my-4">
-      <div class="row" id="recipes-container">
+      
+      <!-- Search bar -->
+      <div class="mb-5">
+         <form class="d-flex justify-content-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+            <button class="btn btn-primary" type="button" id="search-btn">Search</button>
+         </form>
+      </div>
 
+      <!-- Recipes container -->
+      <div class="row" id="recipes-container">
+      </div>
+
+      <!-- Show more button -->
+      <div class="d-flex justify-content-center">
+         <button type="button" class="btn btn-secondary mb-4" id="showMore-btn">
+            <h4 class="text-white">Show more</h4>
+         </button>
       </div>
    </div>
-   <div class="d-flex justify-content-center">
-      <button type="button" class="btn btn-secondary mb-4" id="showMore-btn">
-         <h4 class="text-white">Show more</h4>
-      </button>
-   </div>
+
+   <!-- Footer -->
    <footer>
       <div class="d-flex justify-content-center bg-beige">
          <p class="text-center">© 2024 - All rights reserved</p>
