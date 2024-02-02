@@ -4,10 +4,13 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
 
-// Random recipe
+// Random recipes
 import { getByRandom } from "./byRandom";
-const randomBtn = document.getElementById("random-btn");
-randomBtn.addEventListener('click', () => getByRandom());
+const showMoreBtn = document.getElementById("showMore-btn");
+
+(getByRandom)();
+
+showMoreBtn.addEventListener('click', () => getByRandom());
 
 // Recipe by 
 
