@@ -2,3 +2,14 @@
    color: red; /* Cambia el color a rojo al hacer hover */
    content: '\2665'; /* Código Unicode para el símbolo de corazón relleno */
 }
+
+.bg-brown-hover:hover{
+   background-color: $custom_brown;
+   color: white;
+   cursor: pointer;
+}
+
+.bg-beige-hover:hover{
+   background-color: $custom_beige;
+   cursor: pointer;
+}
