@@ -2,7 +2,13 @@ const urlRecipes = "https://www.themealdb.com/api/json/v1/1/random.php";
 const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
 
-
+/**
+ * Funciónn Crear card
+ * 
+ * Crea una plantilla HTML para una card basado en el objeto de receta proporcionado.
+ * @param {Object} recipe - El objeto de receta que contiene detalles sobre la comida.
+ * @returns {string} - La plantilla HTML para el modal.
+ */
 function createCard(recipe) {
    const template = `
    <div class="col-3">
@@ -22,6 +28,13 @@ function createCard(recipe) {
    return template;
 }
 
+/**
+ * Funciónn Crear modal
+ * 
+ * Crea una plantilla HTML para un modal basado en el objeto de receta proporcionado.
+ * @param {Object} recipe - El objeto de receta que contiene detalles sobre la comida.
+ * @returns {string} - La plantilla HTML para el modal.
+ */
 function createModal(recipe) {
    const recipeId = recipe.meals[0].idMeal;
    const recipeTitle = recipe.meals[0].strMeal;

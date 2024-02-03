@@ -1,19 +1,19 @@
 .bg-beige{
-   background-color: #F2E8DD;
+   background-color: $custom_beige;
 }
 
 .bg-brown{
-   background-color: #A6631B;
+   background-color: $custom_brown;
 }
 
 .text-brown{
-   background-color: #A6631B;
+   background-color: $custom_brown;
 }
 
 .text-beige{
-   background-color: #F2E8DD;
+   background-color: $custom_beige;
 }
 
 .border-bottom-brown{
-   border-bottom: 2px solid #A6631B;
+   border-bottom: 2px solid $custom_brown;
 }
