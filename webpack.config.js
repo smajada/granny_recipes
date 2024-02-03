@@ -16,7 +16,16 @@ module.exports = {
 		port: 8081,
 		hot: true,
 	},
-	plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "./src/index.html",
+			filename: "index.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/discover.html",
+			filename: "discover.html"
+		}),
+	],
 	module: {
 		rules: [
 			{
