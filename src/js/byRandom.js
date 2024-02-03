@@ -26,7 +26,8 @@ function createModal(recipe) {
    const modalId = recipe.meals[0].idMeal;
    const modalTitle = recipe.meals[0].strMeal;
    const modalImage = recipe.meals[0].strMealThumb;
-   const modalInstructions = recipe.meals[0].strInstructions
+   const modalInstructions = recipe.meals[0].strInstructions;
+   const modalCategory = recipe.meals[0].strCategory;
    const ingredientsList = createIngredientsList(recipe.meals[0]);
    
    const template = `
@@ -37,21 +38,30 @@ function createModal(recipe) {
                <h1 class="modal-title fs-5" id="exampleModalLabel">${modalTitle}</h1>
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-            <div d-flex flex-column>
-               <div class="d-flex">
-                  <img src="${modalImage}" class="h-99 w-auto" alt="Food photo">
+            <div class="modal-body d-flex">
+               <div>
+                  <div class="text-center">
+                     <h2 class="">${modalCategory}</h2>
+                  </div>
                   <div>
-                     <h5 class="mt-3">Ingredients:</h5>
-                     <ul class="mt-2">
-                        ${ingredientsList}
-                     </ul>
+                     <h3 class="">Instructions</h3>
+                     <p class="">${modalInstructions}</p>
                   </div>
                </div>
+
                <div>
-                  ${modalInstructions}
+                  <img src="${modalImage}" class="h-450" alt="Food photo"/>
+                  <div>
+                     <div class="text-center">
+                        <h3 class="">Ingredients</h3>
+                     </div>
+                     <div>
+                        <ul class="mt-2 d-flex flex-wrap">
+                           ${ingredientsList}
+                        </ul>
+                     </div>
+                  </div>
                </div>
-            </div>
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
