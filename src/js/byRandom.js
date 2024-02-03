@@ -39,11 +39,15 @@ function createModal(recipe) {
             </div>
             <div class="modal-body">
             <div d-flex flex-column>
-               <img src="${modalImage}" class="w-100 h-auto" alt="Food photo">
-               <h5 class="mt-3">Ingredients:</h5>
-               <ul class="mt-2">
-                  ${ingredientsList}
-               </ul>
+               <div class="d-flex">
+                  <img src="${modalImage}" class="h-99 w-auto" alt="Food photo">
+                  <div>
+                     <h5 class="mt-3">Ingredients:</h5>
+                     <ul class="mt-2">
+                        ${ingredientsList}
+                     </ul>
+                  </div>
+               </div>
                <div>
                   ${modalInstructions}
                </div>
@@ -60,14 +64,24 @@ function createModal(recipe) {
    return template;
 }
 
+/**
+ * Función Create ingredients list
+ * 
+ * Crea una lista de ingredientes y medidas a partir de un objeto de receta.
+ * @param {Object} meal - Objeto que contiene información de la receta.
+ * @returns {string} - Cadena HTML que representa una lista de ingredientes y medidas.
+ */
 function createIngredientsList(meal) {
 
    let ingredientsList = '';
    for (let i = 1; i < 20; i++) {
       const ingredient = meal[`strIngredient${i}`]
       const measure = meal[`strMeasure${i}`]
-      
-      if (!ingredient && !measure) {
+
+      if (ingredient == null || measure == null) {
+         break;
+      }
+      else if (!ingredient.trim() && !measure.trim()){
          break;
       }
 
