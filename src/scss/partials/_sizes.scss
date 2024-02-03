@@ -1,8 +1,28 @@
+// Clases para tamaños de altura y ancho desde 50px hasta 1000px de 50 en 50
+
 @for $i from 2 through 20 {
    .h-#{$i * 50} {
       height: #{$i * 50}px;
    }
+
+   .w-#{$i * 50} {
+      width: #{$i * 50}px;
+   }
 }
+
+
+@for $i from 2 through 20 {
+   .h-max-#{$i * 50} {
+      max-height: #{$i * 50}px;
+   }
+
+   .w-max-#{$i * 50} {
+      max-width: #{$i * 50}px;
+   }
+}
+
+
+
 
 
 
