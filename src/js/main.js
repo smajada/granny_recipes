@@ -2,7 +2,7 @@
 import "../scss/styles.scss";
 // import * as bootstrap from "bootstrap";
 import { getByRandom } from "./byRandom";
-import { listCategories } from "./byCategory";
+import { getByCategory, listCategories } from "./byCategory";
 
 // Random recipes
 const showMoreBtn = document.getElementById("showMore-btn");
@@ -13,4 +13,11 @@ showMoreBtn.addEventListener('click', () => getByRandom());
 
 // Categories
 (listCategories)();
+
+// const categoryBtn = document.getElementById('category-btn');
+
+// categoryBtn.addEventListener('click', (event) => {
+   
+//    console.log(event.target);
+// })
 
