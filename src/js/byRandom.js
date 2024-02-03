@@ -104,16 +104,19 @@ function createIngredientsList(meal) {
 export async function getByRandom() {
    const promises = [];
 
-   for (let i = 0; i <= 7; i++) {
-      const response = await fetch(urlRecipes);
-      const recipe = await response.json();
-
-      promises.push(recipe);
+   if (recipesContainer !== null && modalContainer !== null) {
+      
+      for (let i = 0; i <= 7; i++) {
+         const response = await fetch(urlRecipes);
+         const recipe = await response.json();
+         
+         promises.push(recipe);
+      }
+      
+      const randomRecipes = await Promise.all(promises);
+      randomRecipes.forEach((randomRecipe) => {
+         recipesContainer.innerHTML += createCard(randomRecipe);
+         modalContainer.innerHTML += createModal(randomRecipe);
+      });
    }
-
-   const randomRecipes = await Promise.all(promises);
-   randomRecipes.forEach((randomRecipe) => {
-      recipesContainer.innerHTML += createCard(randomRecipe);
-      modalContainer.innerHTML += createModal(randomRecipe);
-   });
 }

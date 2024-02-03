@@ -1,8 +1,7 @@
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
-@import "partials/navigation";
 @import "partials/variables";
-
 @import "partials/custom_colors";
 @import "partials/sizes";
 @import "partials/custom_hover";
+@import "partials/navigation";
