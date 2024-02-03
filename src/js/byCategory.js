@@ -1,6 +1,11 @@
+import { createCard, createModal } from './byRandom';
+import { getById } from './byId';
+
 const urlCategories = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 const urlRecipe = "https://www.themealdb.com/api/json/v1/1/filter.php";
 const categoriesContainer = document.getElementById("categories-container");
+const recipesContainer = document.getElementById("recipes-container");
+const modalContainer = document.getElementById("modal-container");
 
 function createCategory(categories) {
    const categoriesList = categories.meals;
@@ -13,15 +18,27 @@ function createCategory(categories) {
       </div>
       `;
    });
-   
+
    return template;
 }
 
 export async function getByCategory(category) {
    const promise = await fetch(`${urlRecipe}?c=${category}`);
-   const recipes = promise.json();
+   const recipes = await promise.json();
 
-   console.log(recipes);
+   recipesContainer.innerHTML = '';
+   modalContainer.innerHTML = '';
+
+   recipes.meals.forEach(async (recipe) => {
+
+      const promiseById = await getById(recipe.idMeal);
+      const recipeById = promiseById.meals[0];
+
+      console.log(recipeById);
+
+      //recipesContainer.innerHTML += createCard(recipeById);
+      //modalContainer.innerHTML += createModal(recipeById);
+   });
 }
 
 
