@@ -13,10 +13,19 @@ module.exports = {
 	},
 	devServer: {
 		static: path.resolve(__dirname, "dist"),
-		port: 8080,
+		port: 8081,
 		hot: true,
 	},
-	plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "./src/index.html",
+			filename: "index.html"
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/discover.html",
+			filename: "discover.html"
+		}),
+	],
 	module: {
 		rules: [
 			{
@@ -44,6 +53,10 @@ module.exports = {
 						loader: "sass-loader",
 					},
 				],
+			},
+			{
+				test: /\.html$/i,
+				loader: "html-loader",
 			},
 		],
 	},
