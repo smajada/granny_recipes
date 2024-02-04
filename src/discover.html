@@ -13,7 +13,8 @@
    <!-- Navbar menu and Logo -->
    <nav class="navbar navbar-expand-lg bg-beige d-flex justify-content-between">
       <div class="ms-4">
-         <a class="navbar-brand" href="/">
+         <a class="navbar-brand" href="/" data-bs-toggle="tooltip"
+         data-bs-title="Go back to the main page" data-bs-placement="bottom">
             <?xml version="1.0" encoding="utf-8"?>
             <!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
             <svg version="1.1" id="Capa_1" width="300"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -108,9 +109,18 @@
       <div class="me-5">
          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex">
-               <a class="nav-link active" aria-current="page" href="#">Discover</a>
-               <a class="nav-link" href="#">My favourites</a>
-               <a class="nav-link" href="#">Where am I?</a>
+               <a class="nav-link active" aria-current="page" href="./discover.html" data-bs-toggle="tooltip"
+               data-bs-title="Discover new recipes" data-bs-placement="bottom">
+                  Discover
+               </a>
+               <a class="nav-link" href="#" data-bs-toggle="tooltip"
+               data-bs-title="Go to your favourite recipes" data-bs-placement="bottom">
+                  My favourites
+               </a>
+               <a class="nav-link" href="#" data-bs-toggle="tooltip"
+               data-bs-title="Explore nearby recipes" data-bs-placement="bottom">
+                  Recipes around me
+               </a>
             </div>
          </div>
       </div>
@@ -118,7 +128,11 @@
 
    <!-- Section title -->
    <div class="py-4">
-      <h1 class="text-center">Discover</h1>
+      <h1 class="text-center">
+         <a href="./discover.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+            Discover
+         </a>
+      </h1>
    </div>
    
    <!-- Categories container -->
@@ -129,10 +143,11 @@
    <div class="container my-4">
 
       <!-- Search bar -->
-      <div class="mb-5">
-         <form class="d-flex justify-content-center">
+      <div class="mb-5 d-flex justify-content-between">
+         <h2 id="category-title">Gastronomic highlights</h2>
+         <form class="d-flex justify-content-center w-350">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-            <button class="btn btn-primary" type="button" id="search-btn">Search</button>
+            <button class="btn btn-warning" type="button" id="search-btn">Search</button>
          </form>
       </div>
 
