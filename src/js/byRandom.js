@@ -4,22 +4,27 @@ const modalContainer = document.getElementById("modal-container");
 
 
 /**
- * Funciónn Crear card
+ * Función Crear card
  * 
  * Crea una plantilla HTML para una card basado en el objeto de receta proporcionado.
  * @param {Object} recipe - El objeto de receta que contiene detalles sobre la comida.
  * @returns {string} - La plantilla HTML para el modal.
  */
 export function createCard(recipe) {
+   const recipeId = recipe.meals[0].idMeal;
+   const recipeTitle = recipe.meals[0].strMeal;
+   const recipeImage = recipe.meals[0].strMealThumb;
+   const recipeCategory = recipe.meals[0].strCategory;
+
    const template = `
    <div class="col-3">
       <div class="card mb-4" style="width: 18rem;">
-         <img src="${recipe.meals[0].strMealThumb}" class="card-img-top" alt="Food photo">
+         <img src="${recipeImage}" class="card-img-top" alt="Food photo">
          <div class="card-body">
-            <h5 class="card-title">${recipe.meals[0].strMeal}</h5>
-            <p class="card-text">${recipe.meals[0].strCategory}</p>
-            <a href="#" class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover"></a>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipe.meals[0].idMeal}">
+            <h5 class="card-title">${recipeTitle}</h5>
+            <p class="card-text">${recipeCategory}</p>
+            <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover"></button>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
                More info
             </button>
          </div>
