@@ -21,9 +21,18 @@
       <div class="me-5">
          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex">
-               <a class="nav-link active" aria-current="page" href="#">Discover</a>
-               <a class="nav-link" href="#">My favourites</a>
-               <a class="nav-link" href="#">Where am I?</a>
+               <a class="nav-link active" aria-current="page" href="./discover.html" data-bs-toggle="tooltip"
+               data-bs-title="Discover new recipes" data-bs-placement="bottom">
+                  Discover
+               </a>
+               <a class="nav-link" href="#" data-bs-toggle="tooltip"
+               data-bs-title="Go to your favourite recipes" data-bs-placement="bottom">
+                  My favourites
+               </a>
+               <a class="nav-link" href="#" data-bs-toggle="tooltip"
+               data-bs-title="Explore nearby recipes" data-bs-placement="bottom">
+                  Recipes around me
+               </a>
             </div>
          </div>
       </div>
@@ -31,7 +40,11 @@
 
    <!-- Section title -->
    <div class="py-4">
-      <h1 class="text-center">Discover</h1>
+      <h1 class="text-center">
+         <a href="./discover.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+            Discover
+         </a>
+      </h1>
    </div>
    
    <!-- Categories container -->
@@ -42,15 +55,25 @@
    <div class="container my-4">
 
       <!-- Search bar -->
-      <div class="mb-5">
-         <form class="d-flex justify-content-center">
+      <div class="mb-5 d-flex justify-content-between">
+         <h2 id="category-title">Gastronomic highlights</h2>
+         <form class="d-flex justify-content-center w-350">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-            <button class="btn btn-primary" type="button" id="search-btn">Search</button>
+            <button class="btn btn-warning" type="button" id="search-btn">Search</button>
          </form>
       </div>
 
-      <!-- Recipes container -->
-      <div class="row" id="recipes-container">
+      <div>
+         <!-- Recipes container -->
+         <div class="row" id="recipes-container">
+         </div>
+
+         <!-- Spinner loader -->
+         <div class="d-flex justify-content-center align-items-center vh-50" id="spinner-loader">
+            <div class="spinner-border text-warning" role="status">
+               <span class="visually-hidden">Loading...</span>
+            </div>
+         </div>
       </div>
       
       <!-- Modal container -->
@@ -59,8 +82,8 @@
 
       <!-- Show more button -->
       <div class="d-flex justify-content-center">
-         <button type="button" class="btn btn-secondary mb-4" id="showMore-btn">
-            <h4 class="text-white">Show more</h4>
+         <button type="button" class="btn btn-secondary text-white my-4" id="showMore-btn">
+            Show more
          </button>
       </div>
    </div>

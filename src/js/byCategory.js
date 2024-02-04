@@ -6,6 +6,7 @@ const urlRecipe = "https://www.themealdb.com/api/json/v1/1/filter.php";
 const categoriesContainer = document.getElementById("categories-container");
 const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
+const spinnerLoader = document.getElementById('spinner-loader');
 
 function createCategory(categories) {
    const categoriesList = categories.meals;
@@ -23,15 +24,22 @@ function createCategory(categories) {
 }
 
 export async function getByCategory(category) {
+   const showMoreBtn = document.getElementById('showMore-btn');
+   const categoryTitle = document.getElementById('category-title');
+   
    const promise = await fetch(`${urlRecipe}?c=${category}`);
    const recipes = await promise.json();
-
+   
    recipesContainer.innerHTML = '';
    modalContainer.innerHTML = '';
+   categoryTitle.innerHTML = category;
+   spinnerLoader.classList.remove('d-flex');
+   spinnerLoader.classList.add('d-none');
 
    recipes.meals.forEach(async (recipe) => {
 
       const recipeById = await getById(recipe.idMeal);
+      showMoreBtn.style.display = 'none';
 
       recipesContainer.innerHTML += createCard(recipeById);
       modalContainer.innerHTML += createModal(recipeById);

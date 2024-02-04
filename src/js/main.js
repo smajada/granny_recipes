@@ -33,3 +33,6 @@ if (categoriesContainer) {
    console.log('Contenedor de categorías no encontrado');
 }
 
+// Importa la funcionalidad de los Tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
