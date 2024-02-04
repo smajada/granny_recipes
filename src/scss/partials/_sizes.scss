@@ -1,5 +1,5 @@
-// Clases para tamaños de altura y ancho desde 50px hasta 1000px de 50 en 50
-
+// Tamaño máximo de HEIGHT de 50px - 1000px
+// Intervalo de 50
 @for $i from 2 through 20 {
    .h-#{$i * 50} {
       height: #{$i * 50}px;
@@ -10,7 +10,8 @@
    }
 }
 
-
+// Tamaño máximo de WIDTH de 50px - 1000px
+// Intervalo de 50
 @for $i from 2 through 20 {
    .h-max-#{$i * 50} {
       max-height: #{$i * 50}px;
@@ -20,6 +21,19 @@
       max-width: #{$i * 50}px;
    }
 }
+
+
+
+@for $i from 1 through 10 {
+   .vh-#{$i * 10} {
+      height: #{$i * 10}vh;
+   }
+
+   .vw-#{$i * 10} {
+      width: #{$i * 10}vw;
+   }
+}
+
 
 
 
