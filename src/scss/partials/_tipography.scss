@@ -1,10 +1,5 @@
-body {
-   font-family: 'Alice', serif;
+@for $i from 1 through 6 {
+   h#{$i} {
+      font-family: 'Alice', serif;
+   }
 }
-
-// @for $i from 1 through 6 {
-//    h#{$i} {
-//       font-family: 'Merienda';
-//       font-size: 2em - $i * 0.2em;
-//    }
-// }
