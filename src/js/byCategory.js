@@ -25,13 +25,15 @@ function createCategory(categories) {
 export async function getByCategory(category) {
    const promise = await fetch(`${urlRecipe}?c=${category}`);
    const recipes = await promise.json();
-
+   const showMoreBtn = document.getElementById('showMore-btn');
+   
    recipesContainer.innerHTML = '';
    modalContainer.innerHTML = '';
-
+   
    recipes.meals.forEach(async (recipe) => {
 
       const recipeById = await getById(recipe.idMeal);
+      showMoreBtn.style.display = 'none';
 
       recipesContainer.innerHTML += createCard(recipeById);
       modalContainer.innerHTML += createModal(recipeById);
