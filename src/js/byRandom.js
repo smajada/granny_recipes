@@ -55,17 +55,17 @@ export function createModal(recipe) {
             </div>
             <div class="modal-body d-flex flex-column">
 
-               <div class="d-flex">
+               <div class="d-flex h-auto">
                   <img src="${recipeImage}" class="h-400 rounded" alt="Food photo"/>
 
-                  <div class="h-max-400 d-flex flex-grow-1 justify-content-around align-items-start">
-                     <div class="">
-                        <h3 class="text-center">Ingredients</h3>
+                  <div class="d-flex flex-grow-1 justify-content-around align-items-start">
+                     <div class="d-flex flex-column justify-content-start">
+                        <h3>Ingredients</h3>
                         <ul class="mt-2">
                            ${ingredientsList}
                         </ul>
                      </div>
-                     <div class="d-flex flex-column w-max-400">
+                     <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Info</h3>
                         <p><span class="fw-bold">Area:</span> ${recipeArea}</p>
                         <p><span class="fw-bold">Food categroy:</span> ${recipeCategory}</p>
@@ -110,7 +110,7 @@ function createIngredientsList(meal) {
          break;
       }
 
-      ingredientsList += `<li>${ingredient} - ${measure}</li>`
+      ingredientsList += `<li me-3>${ingredient} - ${measure}</li>`
    }
    return ingredientsList;
 }
