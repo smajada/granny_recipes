@@ -23,12 +23,15 @@ function createCategory(categories) {
 }
 
 export async function getByCategory(category) {
+   const showMoreBtn = document.getElementById('showMore-btn');
+   const categoryTitle = document.getElementById('category-title');
+   
    const promise = await fetch(`${urlRecipe}?c=${category}`);
    const recipes = await promise.json();
-   const showMoreBtn = document.getElementById('showMore-btn');
    
    recipesContainer.innerHTML = '';
    modalContainer.innerHTML = '';
+   categoryTitle.innerHTML = category;
    
    recipes.meals.forEach(async (recipe) => {
 
