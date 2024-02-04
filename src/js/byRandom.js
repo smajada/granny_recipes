@@ -3,7 +3,14 @@ const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
 
 
-function createCard(recipe) {
+/**
+ * Funciónn Crear card
+ * 
+ * Crea una plantilla HTML para una card basado en el objeto de receta proporcionado.
+ * @param {Object} recipe - El objeto de receta que contiene detalles sobre la comida.
+ * @returns {string} - La plantilla HTML para el modal.
+ */
+export function createCard(recipe) {
    const template = `
    <div class="col-3">
       <div class="card mb-4" style="width: 18rem;">
@@ -22,7 +29,14 @@ function createCard(recipe) {
    return template;
 }
 
-function createModal(recipe) {
+/**
+ * Funciónn Crear modal
+ * 
+ * Crea una plantilla HTML para un modal basado en el objeto de receta proporcionado.
+ * @param {Object} recipe - El objeto de receta que contiene detalles sobre la comida.
+ * @returns {string} - La plantilla HTML para el modal.
+ */
+export function createModal(recipe) {
    const recipeId = recipe.meals[0].idMeal;
    const recipeTitle = recipe.meals[0].strMeal;
    const recipeImage = recipe.meals[0].strMealThumb;
@@ -41,17 +55,17 @@ function createModal(recipe) {
             </div>
             <div class="modal-body d-flex flex-column">
 
-               <div class="d-flex">
+               <div class="d-flex h-auto">
                   <img src="${recipeImage}" class="h-400 rounded" alt="Food photo"/>
 
-                  <div class="h-max-400 d-flex flex-grow-1 justify-content-around align-items-start">
-                     <div class="">
-                        <h3 class="text-center">Ingredients</h3>
+                  <div class="d-flex flex-grow-1 justify-content-around align-items-start">
+                     <div class="d-flex flex-column justify-content-start">
+                        <h3>Ingredients</h3>
                         <ul class="mt-2">
                            ${ingredientsList}
                         </ul>
                      </div>
-                     <div class="d-flex flex-column w-max-400">
+                     <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Info</h3>
                         <p><span class="fw-bold">Area:</span> ${recipeArea}</p>
                         <p><span class="fw-bold">Food categroy:</span> ${recipeCategory}</p>
@@ -96,7 +110,7 @@ function createIngredientsList(meal) {
          break;
       }
 
-      ingredientsList += `<li>${ingredient} - ${measure}</li>`
+      ingredientsList += `<li me-3>${ingredient} - ${measure}</li>`
    }
    return ingredientsList;
 }

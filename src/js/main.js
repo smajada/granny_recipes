@@ -2,16 +2,34 @@
 import "../scss/styles.scss";
 // Import all of Bootstrap's JS
 import * as bootstrap from "bootstrap";
+import { getByRandom } from "./byRandom";
+import { getByCategory, listCategories } from "./byCategory";
 
+const showMoreBtn = document.getElementById("showMore-btn");
+const categoriesContainer = document.getElementById('categories-container');
 
 // Random recipes
-import { getByRandom } from "./byRandom";
-const showMoreBtn = document.getElementById("showMore-btn");
-
 (getByRandom)();
-
 showMoreBtn.addEventListener('click', () => getByRandom());
 
-// Recipe by 
+// Categories
+(listCategories)();
+if (categoriesContainer) {
+   categoriesContainer.addEventListener('click', function (event) {
+      const categoryBtn = event.target.closest('#category-btn');
 
+      if (categoryBtn) {
+         const categoryTextElement = categoryBtn.querySelector('h5');
+         
+         if (categoryTextElement) {
+            const categoryFood = categoryTextElement.textContent;
+            getByCategory(categoryFood);
+         } else {
+            console.error('Elemento h5 no encontrado dentro del botón de categoría');
+         }
+      }
+   });
+} else {
+   console.log('Contenedor de categorías no encontrado');
+}
 
