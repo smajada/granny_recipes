@@ -1,6 +1,7 @@
 const urlRecipes = "https://www.themealdb.com/api/json/v1/1/random.php";
 const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
+const spinnerLoader = document.getElementById('spinner-loader');
 
 
 /**
@@ -131,8 +132,10 @@ export async function getByRandom() {
          
          promises.push(recipe);
       }
-      
       const randomRecipes = await Promise.all(promises);
+
+      spinnerLoader.classList.remove('d-flex');
+      spinnerLoader.classList.add('d-none');
       randomRecipes.forEach((randomRecipe) => {
          recipesContainer.innerHTML += createCard(randomRecipe);
          modalContainer.innerHTML += createModal(randomRecipe);
