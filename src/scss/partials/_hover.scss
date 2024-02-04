@@ -3,13 +3,12 @@
    content: '\2665'; /* Código Unicode para el símbolo de corazón relleno */
 }
 
-.bg-brown-hover:hover{
-   background-color: $custom_brown;
-   color: white;
+.bg-beige-hover:hover{
+   background-color: $custom_beige;
    cursor: pointer;
 }
 
-.bg-beige-hover:hover{
-   background-color: $custom_beige;
+.border-bottom-brown-hover:hover{
+   border-bottom: 3px solid $custom_brown;
    cursor: pointer;
 }

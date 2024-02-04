@@ -13,7 +13,7 @@ function createCategory(categories) {
 
    categoriesList.forEach(category => {
       template +=
-      `<div class="bg-brown-hover px-3 py-2 border-start" id="category-btn">
+      `<div class="border-bottom-white border-bottom-brown-hover px-3 py-2" id="category-btn">
          <h5>${category.strCategory}</h5>
       </div>
       `;
