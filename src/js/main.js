@@ -1,6 +1,7 @@
 // Import our custom CSS
 import "../scss/styles.scss";
-// import * as bootstrap from "bootstrap";
+// Import all of Bootstrap's JS
+import * as bootstrap from "bootstrap";
 import { getByRandom } from "./byRandom";
 import { getByCategory, listCategories } from "./byCategory";
 
@@ -31,7 +32,4 @@ if (categoriesContainer) {
 } else {
    console.log('Contenedor de categorías no encontrado');
 }
-
-
-
 
