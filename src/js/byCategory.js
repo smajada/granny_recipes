@@ -31,13 +31,10 @@ export async function getByCategory(category) {
 
    recipes.meals.forEach(async (recipe) => {
 
-      const promiseById = await getById(recipe.idMeal);
-      const recipeById = promiseById.meals[0];
+      const recipeById = await getById(recipe.idMeal);
 
-      console.log(recipeById);
-
-      //recipesContainer.innerHTML += createCard(recipeById);
-      //modalContainer.innerHTML += createModal(recipeById);
+      recipesContainer.innerHTML += createCard(recipeById);
+      modalContainer.innerHTML += createModal(recipeById);
    });
 }
 
