@@ -1,6 +1,6 @@
-// Import our custom CSS
+// Importa nuestro CSS modificado
 import "../scss/styles.scss";
-// Import all of Bootstrap's JS
+// Importa todo el JS de Bootstrap
 import * as bootstrap from "bootstrap";
 import { getByRandom } from "./byRandom";
 import { getByCategory, listCategories } from "./byCategory";
@@ -8,31 +8,23 @@ import { getByCategory, listCategories } from "./byCategory";
 const showMoreBtn = document.getElementById("showMore-btn");
 const categoriesContainer = document.getElementById('categories-container');
 
-// Random recipes
-(getByRandom)();
-showMoreBtn.addEventListener('click', () => getByRandom());
+// Bloque de Recetas random
+(getByRandom)(); // Muestra una receta aleatoria al cargar
+showMoreBtn.addEventListener('click', () => getByRandom()); // Asocia mostrar más recetas al clicar en el botón
 
-// Categories
-(listCategories)();
-if (categoriesContainer) {
+// Bloque de Categorías
+(listCategories)(); // Lista las categorías al cargar
+if (categoriesContainer) { // Manejo de clics en el contenedor de categorías
    categoriesContainer.addEventListener('click', function (event) {
       const categoryBtn = event.target.closest('#category-btn');
-
       if (categoryBtn) {
          const categoryTextElement = categoryBtn.querySelector('h5');
-         
-         if (categoryTextElement) {
-            const categoryFood = categoryTextElement.textContent;
-            getByCategory(categoryFood);
-         } else {
-            console.error('Elemento h5 no encontrado dentro del botón de categoría');
-         }
+         if (categoryTextElement) getByCategory(categoryTextElement.textContent);
+         else console.error('Element not found in category button');
       }
    });
-} else {
-   console.log('Contenedor de categorías no encontrado');
-}
+} else console.log('Categories container not found');
 
-// Importa la funcionalidad de los Tooltips
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+// Bloque de Tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'); // Selecciona elementos con tooltips
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl)); // Inicializa tooltips
