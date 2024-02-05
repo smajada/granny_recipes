@@ -60,14 +60,16 @@ export function getRecipesFromIndexedDB() {
 
 		request.onsuccess = (event) => {
 			const recipes = event.target.result;
+
 			const favoritesContainer = document.getElementById("favorites-container");
 			const modalContainer = document.getElementById("modal-container");
+
+			favoritesContainer.innerHTML = "";
 
 			recipes.forEach((recipe) => {
 				const recipeCard = createCard(recipe.recipe);
 				const recipeModal = createModal(recipe.recipe);
 
-				favoritesContainer.innerHTML = "";
 				favoritesContainer.innerHTML += recipeCard;
 				modalContainer.innerHTML += recipeModal;
 			});
