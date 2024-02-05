@@ -71,7 +71,7 @@ export function getRecipesFromIndexedDB() {
 			favoritesContainer.innerHTML = "";
 
 			recipes.forEach((recipe) => {
-				const recipeCard = createCard(recipe.recipe);
+				const recipeCard = createCard(recipe.recipe, false);
 				const recipeModal = createModal(recipe.recipe);
 
 				favoritesContainer.innerHTML += recipeCard;

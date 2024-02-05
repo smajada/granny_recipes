@@ -34,7 +34,7 @@ export async function getByRandom() {
 
 		// Agrega el HTML de las recetas y modales al contenedor correspondiente
 		randomRecipes.forEach((randomRecipe) => {
-			recipesContainer.innerHTML += createCard(randomRecipe);
+			recipesContainer.innerHTML += createCard(randomRecipe, true);
 			modalContainer.innerHTML += createModal(randomRecipe);
 		});
 
