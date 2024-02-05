@@ -1,4 +1,4 @@
-import { createCard, createModal } from "./byRandom.js";
+import { createCard, createModal } from "./createElements.js";
 
 /**
  * Opens an IndexedDB database and creates an object store for recipes.
