@@ -21,29 +21,33 @@ export function openIndexedDB() {
  * @param {Object} recipe - The recipe object to be added.
  */
 export function addRecipeToIndexedDB(recipe) {
-	const db = openIndexedDB();
+	if (recipe && recipe.meals && recipe.meals.length > 0) {
+		const db = openIndexedDB();
 
-	db.onsuccess = (event) => {
-		const db = event.target.result;
-		const transaction = db.transaction("recipes", "readwrite");
-		const objectStore = transaction.objectStore("recipes");
+		console.log(recipe);
 
-		objectStore.add({
-			id: recipe.meals[0].idMeal,
-			recipe: recipe,
-		});
+		db.onsuccess = (event) => {
+			const db = event.target.result;
+			const transaction = db.transaction("recipes", "readwrite");
+			const objectStore = transaction.objectStore("recipes");
 
-		transaction.oncomplete = () => {
-			showNotification("Recipe added to favorites", "success");
+			objectStore.add({
+				id: recipe.meals[0].idMeal,
+				recipe: recipe,
+			});
+
+			transaction.oncomplete = () => {
+				showNotification("Recipe added to favorites", "success");
+			};
+
+			transaction.onerror = () => {
+				showNotification(
+					"Error adding recipe to favorites." + transaction.error,
+					"danger"
+				);
+			};
 		};
-
-		transaction.onerror = () => {
-			showNotification(
-				"Error adding recipe to favorites." + transaction.error,
-				"danger"
-			);
-		};
-	};
+	}
 }
 
 /**
