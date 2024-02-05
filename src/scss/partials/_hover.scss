@@ -1,19 +1,20 @@
-.bi-heart-fill-hover:hover{
-   color: red; /* Cambia el color a rojo al hacer hover */
-   content: '\2665'; /* Código Unicode para el símbolo de corazón relleno */
+.bi-heart-fill-hover:hover,
+.bi-x-circle-hover:hover {
+	color: red; /* Cambia el color a rojo al hacer hover */
+	content: "\2665"; /* Código Unicode para el símbolo de corazón relleno */
 }
 
-.bg-beige-hover:hover{
-   background-color: $custom_beige;
-   cursor: pointer;
+.bg-beige-hover:hover {
+	background-color: $custom_beige;
+	cursor: pointer;
 }
 
-.border-bottom-brown-hover:hover{
-   border-bottom: 3px solid $custom_brown;
-   cursor: pointer;
+.border-bottom-brown-hover:hover {
+	border-bottom: 3px solid $custom_brown;
+	cursor: pointer;
 }
 
-.border-bottom-dark-hover:hover{
-   border-bottom: 3px solid black;
-   cursor: pointer;
+.border-bottom-dark-hover:hover {
+	border-bottom: 3px solid black;
+	cursor: pointer;
 }
