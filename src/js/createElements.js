@@ -22,10 +22,12 @@ export function createCard(recipe, isFavorite) {
          <div class="card-body">
             <h5 class="card-title">${recipeTitle}</h5>
             <p class="card-text">${recipeCategory}</p>
-            <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
+            <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
-               More info
+            More info
             </button>
+            <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
+            </div>
          </div>
       </div>
    </div>`;
@@ -36,10 +38,12 @@ export function createCard(recipe, isFavorite) {
          <div class="card-body">
             <h5 class="card-title">${recipeTitle}</h5>
             <p class="card-text">${recipeCategory}</p>
-            <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+            <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
-               More info
+            More info
             </button>
+            <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+            </div>
          </div>
       </div>
    </div>`;

@@ -68,8 +68,6 @@ export function getRecipesFromIndexedDB() {
 			const favoritesContainer = document.getElementById("favorites-container");
 			const modalContainer = document.getElementById("modal-container");
 
-			favoritesContainer.innerHTML = "";
-
 			recipes.forEach((recipe) => {
 				const recipeCard = createCard(recipe.recipe, false);
 				const recipeModal = createModal(recipe.recipe);
@@ -77,11 +75,41 @@ export function getRecipesFromIndexedDB() {
 				favoritesContainer.innerHTML += recipeCard;
 				modalContainer.innerHTML += recipeModal;
 			});
+
+			if (recipes.length === 0) {
+				favoritesContainer.innerHTML = `      <div class="container my-4">
+        <p class="text-center">Go to discover and start getting your favorites</p>
+      </div>`;
+			}
 		};
 
 		request.onerror = () => {
 			showNotification(
 				"Error retrieving recipes from favorites." + request.error,
+				"danger"
+			);
+		};
+	};
+}
+
+export function deleteRecipeFromIndexedDB(recipeId) {
+	const db = openIndexedDB();
+
+	db.onsuccess = (event) => {
+		const db = event.target.result;
+		const transaction = db.transaction("recipes", "readwrite");
+		const objectStore = transaction.objectStore("recipes");
+
+		objectStore.delete(recipeId);
+
+		transaction.oncomplete = () => {
+			showNotification("Recipe removed from favorites", "success");
+			getRecipesFromIndexedDB();
+		};
+
+		transaction.onerror = () => {
+			showNotification(
+				"Error removing recipe from favorites." + transaction.error,
 				"danger"
 			);
 		};
