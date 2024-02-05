@@ -5,27 +5,49 @@
  * @param {Object} recipe - Objeto que contiene información de la receta.
  * @returns {string} - HTML de la tarjeta con detalles básicos de la receta.
  */
-export function createCard(recipe) {
+export function createCard(recipe, isFavorite) {
 	const recipeId = recipe.meals[0].idMeal;
 	const recipeTitle = recipe.meals[0].strMeal;
 	const recipeImage = recipe.meals[0].strMealThumb;
 	const recipeCategory = recipe.meals[0].strCategory;
+	let template = "";
 
-	// Estructura de la tarjeta en formato HTML
-	const template = `
-      <div class="col-3">
-         <div class="card mb-4" style="width: 18rem;">
-            <img src="${recipeImage}" class="card-img-top" alt="Food photo">
-            <div class="card-body">
-               <h5 class="card-title">${recipeTitle}</h5>
-               <p class="card-text">${recipeCategory}</p>
-               <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
-               <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
-                  More info
-               </button>
+	if (isFavorite) {
+		// Estructura de la tarjeta en formato HTML
+		// Estructura de la tarjeta en formato HTML
+		template = `
+   <div class="col-3">
+      <div class="card mb-4" style="width: 18rem;">
+         <img src="${recipeImage}" class="card-img-top" alt="Food photo">
+         <div class="card-body">
+            <h5 class="card-title">${recipeTitle}</h5>
+            <p class="card-text">${recipeCategory}</p>
+            <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
+            More info
+            </button>
+            <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
             </div>
          </div>
-      </div>`;
+      </div>
+   </div>`;
+	} else {
+		template = ` <div class="col-3">
+      <div class="card mb-4" style="width: 18rem;">
+         <img src="${recipeImage}" class="card-img-top" alt="Food photo">
+         <div class="card-body">
+            <h5 class="card-title">${recipeTitle}</h5>
+            <p class="card-text">${recipeCategory}</p>
+            <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
+            More info
+            </button>
+            <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+            </div>
+         </div>
+      </div>
+   </div>`;
+	}
 
 	return template;
 }
@@ -82,7 +104,6 @@ export function createModal(recipe) {
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover"></button>
                </div>
             </div>
          </div>

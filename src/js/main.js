@@ -4,7 +4,11 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import { getByCategory, listCategories } from "./byCategory";
 import { getByRandom } from "./byRandom";
-import { openIndexedDB, getRecipesFromIndexedDB } from "./indexedDB";
+import {
+	openIndexedDB,
+	getRecipesFromIndexedDB,
+	deleteRecipeFromIndexedDB,
+} from "./indexedDB";
 
 const showMoreBtn = document.getElementById("showMore-btn");
 const categoriesContainer = document.getElementById("categories-container");
@@ -41,6 +45,15 @@ const tooltipList = [...tooltipTriggerList].map(
 // Favorites
 if (favoritesContainer) {
 	getRecipesFromIndexedDB();
+
+	// Add event listener to delete buttons
+	favoritesContainer.addEventListener("click", (event) => {
+		const target = event.target;
+		if (target.classList.contains("bi-x-circle")) {
+			const recipeId = target.id.split("_")[1];
+			deleteRecipeFromIndexedDB(recipeId);
+		}
+	});
 }
 
 // IndexedDB
