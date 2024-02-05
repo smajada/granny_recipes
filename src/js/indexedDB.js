@@ -1,4 +1,4 @@
-import { createCard, createModal } from "./createElements.js";
+import { createCard, createModal, showNotification } from "./createElements.js";
 
 /**
  * Opens an IndexedDB database and creates an object store for recipes.
@@ -103,34 +103,18 @@ export function deleteRecipeFromIndexedDB(recipeId) {
 		objectStore.delete(recipeId);
 
 		transaction.oncomplete = () => {
-			showNotification("Recipe removed from favorites", "success");
+			const favoritesContainer = document.getElementById("favorites-container");
+			showNotification("Recipe removed from favorites", "danger");
+
+			favoritesContainer.innerHTML = "";
 			getRecipesFromIndexedDB();
 		};
 
 		transaction.onerror = () => {
 			showNotification(
 				"Error removing recipe from favorites." + transaction.error,
-				"danger"
+				"info"
 			);
 		};
 	};
-}
-
-/**
- * Displays a notification message on the screen.
- *
- * @param {string} message - The message to be displayed in the notification.
- * @param {string} className - The CSS class name to be applied to the notification element.
- */
-function showNotification(message, className) {
-	const notification = document.createElement("div");
-	notification.className = `alert alert-${className}`;
-	notification.appendChild(document.createTextNode(message));
-
-	const container = document.getElementById("notification-container");
-	container.appendChild(notification);
-
-	setTimeout(() => {
-		notification.remove();
-	}, 3000);
 }

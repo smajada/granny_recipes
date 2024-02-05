@@ -161,3 +161,22 @@ export function createCategory(categories) {
 
 	return template;
 }
+
+/**
+ * Displays a notification message on the screen.
+ *
+ * @param {string} message - The message to be displayed in the notification.
+ * @param {string} className - The CSS class name to be applied to the notification element.
+ */
+export function showNotification(message, className) {
+	const notification = document.createElement("div");
+	notification.className = `alert alert-${className}`;
+	notification.appendChild(document.createTextNode(message));
+
+	const container = document.getElementById("notification-container");
+	container.appendChild(notification);
+
+	setTimeout(() => {
+		notification.remove();
+	}, 3000);
+}
