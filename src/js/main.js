@@ -1,9 +1,10 @@
 // Import our custom CSS
 import "../scss/styles.scss";
 // Import all of Bootstrap's JS
+import * as bootstrap from "bootstrap";
 import { getByCategory, listCategories } from "./byCategory";
 import { getByRandom } from "./byRandom";
-import { openIndexedDB } from "./indexedDB";
+import { openIndexedDB, addRecipeToIndexedDB } from "./indexedDB";
 
 const showMoreBtn = document.getElementById("showMore-btn");
 const favoriteBtn = document.querySelector(".bi-heart-fill");

@@ -17,6 +17,12 @@ export function addRecipeToIndexedDB(recipe) {
 		const transaction = db.transaction("recipes", "readwrite");
 		const objectStore = transaction.objectStore("recipes");
 
-		objectStore.add(recipe);
+		// objectStore.add({
+		// 	id: 1,
+		// 	title: "hello",
+		// 	image: "sayonara",
+		// });
+
+		console.log(recipe);
 	};
 }
