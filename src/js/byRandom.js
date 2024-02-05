@@ -41,7 +41,7 @@ export async function getByRandom() {
 		// Add event listener to heart buttons
 		recipesContainer.addEventListener("click", (event) => {
 			const target = event.target;
-			if (target.classList.contains("bi-heart-fill-hover")) {
+			if (target.classList.contains("bi-heart-fill")) {
 				const recipeId = target.id.split("_")[1];
 
 				const selectedRecipe = randomRecipes.find(
