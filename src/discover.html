@@ -13,7 +13,7 @@
 
 <body>
    <!-- Navbar menu and Logo -->
-   <nav class="navbar navbar-expand-lg bg-beige d-flex justify-content-between">
+   <nav class="container-fluid navbar navbar-expand-lg bg-beige d-flex justify-content-between">
       <div class="ms-4">
          <a class="navbar-brand" href="/" data-bs-toggle="tooltip" data-bs-title="Go back to the main page"
             data-bs-placement="bottom">
@@ -50,7 +50,7 @@
    </div>
 
    <!-- Categories container -->
-   <div class="border-bottom d-flex justify-content-center" id="categories-container">
+   <div class="border-bottom d-flex justify-content-center overflow-scroll bg-danger" id="categories-container">
    </div>
 
    <!-- Main page container -->
@@ -63,13 +63,9 @@
       <!-- Search bar -->
       <div class="mb-5 d-flex justify-content-between">
          <h2 id="category-title">Gastronomic highlights</h2>
-         <form class="d-flex justify-content-center w-350">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-            <button class="btn btn-warning" type="button" id="search-btn">Search</button>
-         </form>
       </div>
 
-      <div>
+      <div class="">
          <!-- Recipes container -->
          <div class="row" id="recipes-container">
          </div>
