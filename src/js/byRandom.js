@@ -43,12 +43,12 @@ export async function getByRandom() {
 			const target = event.target;
 			if (target.classList.contains("bi-heart-fill-hover")) {
 				const recipeId = target.id.split("_")[1];
+
 				const selectedRecipe = randomRecipes.find(
 					(recipe) => recipe.meals[0].idMeal === recipeId
 				);
 
-				console.log(selectedRecipe);
-				// addRecipeToIndexedDB(selectedRecipe);
+				addRecipeToIndexedDB(selectedRecipe);
 			}
 		});
 	}
