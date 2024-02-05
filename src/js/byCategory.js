@@ -1,5 +1,6 @@
-import { createCard, createModal } from './byRandom';
-import { getById } from './byId';
+import { createCard, createModal } from "./byRandom";
+import { getById } from "./byId";
+import { addRecipeToIndexedDB } from "./indexedDB";
 
 const urlCategories = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 const urlRecipe = "https://www.themealdb.com/api/json/v1/1/filter.php";
@@ -8,43 +9,47 @@ const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
 
 function createCategory(categories) {
-   const categoriesList = categories.meals;
-   let template = '';
+	const categoriesList = categories.meals;
+	let template = "";
 
-   categoriesList.forEach(category => {
-      template +=
-      `<div class="border-bottom-white border-bottom-brown-hover px-3 py-2" id="category-btn">
+	categoriesList.forEach((category) => {
+		template += `<div class="border-bottom-white border-bottom-brown-hover px-3 py-2" id="category-btn">
          <h5>${category.strCategory}</h5>
       </div>
       `;
-   });
+	});
 
-   return template;
+	return template;
 }
 
 export async function getByCategory(category) {
-   const promise = await fetch(`${urlRecipe}?c=${category}`);
-   const recipes = await promise.json();
+	const promise = await fetch(`${urlRecipe}?c=${category}`);
+	const recipes = await promise.json();
 
-   recipesContainer.innerHTML = '';
-   modalContainer.innerHTML = '';
+	recipesContainer.innerHTML = "";
+	modalContainer.innerHTML = "";
 
-   recipes.meals.forEach(async (recipe) => {
+	recipes.meals.forEach(async (recipe) => {
+		const recipeById = await getById(recipe.idMeal);
 
-      const recipeById = await getById(recipe.idMeal);
+		recipesContainer.innerHTML += createCard(recipeById);
+		modalContainer.innerHTML += createModal(recipeById);
 
-      recipesContainer.innerHTML += createCard(recipeById);
-      modalContainer.innerHTML += createModal(recipeById);
-   });
+		// Add event listener to heart buttons
+		const heartButtons = document.querySelectorAll(".favBtn");
+		heartButtons.forEach((heartButton) => {
+			heartButton.addEventListener("click", () =>
+				addRecipeToIndexedDB(recipeById)
+			);
+		});
+	});
 }
 
+export async function listCategories() {
+	if (categoriesContainer !== null) {
+		const promise = await fetch(urlCategories);
+		const categories = await promise.json();
 
-export async function listCategories() { 
-   if (categoriesContainer !== null) {
-      
-      const promise = await fetch(urlCategories);
-      const categories = await promise.json();
-      
-      categoriesContainer.innerHTML = createCategory(categories);
-   }
+		categoriesContainer.innerHTML = createCategory(categories);
+	}
 }

@@ -4,11 +4,11 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import { getByCategory, listCategories } from "./byCategory";
 import { getByRandom } from "./byRandom";
-import { openIndexedDB, addRecipeToIndexedDB } from "./indexedDB";
+import { openIndexedDB, getRecipesFromIndexedDB } from "./indexedDB";
 
 const showMoreBtn = document.getElementById("showMore-btn");
-const favoriteBtn = document.querySelector(".bi-heart-fill");
 const categoriesContainer = document.getElementById("categories-container");
+const favoritesContainer = document.getElementById("favorites-container");
 
 // Random recipes
 getByRandom();
@@ -39,6 +39,12 @@ if (categoriesContainer) {
 	console.log("Contenedor de categorías no encontrado");
 }
 
+// Favorites
+if (favoritesContainer) {
+	getRecipesFromIndexedDB();
+}
+
+// IndexedDB
 (function () {
 	const db = openIndexedDB();
 	db.onsuccess = (event) => {
