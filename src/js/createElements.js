@@ -1,25 +1,25 @@
 /**
  * Crear tarjeta.
- * 
+ *
  * Crea y devuelve el HTML para una tarjeta de receta.
  * @param {Object} recipe - Objeto que contiene información de la receta.
  * @returns {string} - HTML de la tarjeta con detalles básicos de la receta.
  */
 export function createCard(recipe) {
-   const recipeId = recipe.meals[0].idMeal;
-   const recipeTitle = recipe.meals[0].strMeal;
-   const recipeImage = recipe.meals[0].strMealThumb;
-   const recipeCategory = recipe.meals[0].strCategory;
+	const recipeId = recipe.meals[0].idMeal;
+	const recipeTitle = recipe.meals[0].strMeal;
+	const recipeImage = recipe.meals[0].strMealThumb;
+	const recipeCategory = recipe.meals[0].strCategory;
 
-   // Estructura de la tarjeta en formato HTML
-   const template = `
+	// Estructura de la tarjeta en formato HTML
+	const template = `
       <div class="col-3">
          <div class="card mb-4" style="width: 18rem;">
             <img src="${recipeImage}" class="card-img-top" alt="Food photo">
             <div class="card-body">
                <h5 class="card-title">${recipeTitle}</h5>
                <p class="card-text">${recipeCategory}</p>
-               <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover"></button>
+               <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
                   More info
                </button>
@@ -27,28 +27,27 @@ export function createCard(recipe) {
          </div>
       </div>`;
 
-   return template;
+	return template;
 }
-
 
 /**
  * Crear modal.
- * 
+ *
  * Crea y devuelve el HTML para un modal de receta.
  * @param {Object} recipe - Objeto que contiene información de la receta.
  * @returns {string} - HTML del modal con detalles de la receta.
  */
 export function createModal(recipe) {
-   const recipeId = recipe.meals[0].idMeal;
-   const recipeTitle = recipe.meals[0].strMeal;
-   const recipeImage = recipe.meals[0].strMealThumb;
-   const recipeInstructions = recipe.meals[0].strInstructions;
-   const recipeCategory = recipe.meals[0].strCategory;
-   const recipeArea = recipe.meals[0].strArea;
-   const ingredientsList = createIngredientsList(recipe.meals[0]);
+	const recipeId = recipe.meals[0].idMeal;
+	const recipeTitle = recipe.meals[0].strMeal;
+	const recipeImage = recipe.meals[0].strMealThumb;
+	const recipeInstructions = recipe.meals[0].strInstructions;
+	const recipeCategory = recipe.meals[0].strCategory;
+	const recipeArea = recipe.meals[0].strArea;
+	const ingredientsList = createIngredientsList(recipe.meals[0]);
 
-   // Estructura del modal en formato HTML
-   const template = `
+	// Estructura del modal en formato HTML
+	const template = `
       <div class="modal fade" id="modal_${recipeId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -89,58 +88,55 @@ export function createModal(recipe) {
          </div>
       </div>`;
 
-   return template;
+	return template;
 }
-
 
 /**
  * Crear lista de ingredientes.
- * 
+ *
  * Crea y devuelve una lista de ingredientes con sus cantidades para una receta.
  * @param {Object} meal - Objeto que contiene información de la receta, incluyendo ingredientes y medidas.
  * @returns {string} - Lista de ingredientes en formato HTML.
  */
 function createIngredientsList(meal) {
-   let ingredientsList = '';
+	let ingredientsList = "";
 
-   // Itera sobre los ingredientes y medidas (hasta 20) de la receta
-   for (let i = 1; i < 20; i++) {
-      const ingredient = meal[`strIngredient${i}`];
-      const measure = meal[`strMeasure${i}`];
+	// Itera sobre los ingredientes y medidas (hasta 20) de la receta
+	for (let i = 1; i < 20; i++) {
+		const ingredient = meal[`strIngredient${i}`];
+		const measure = meal[`strMeasure${i}`];
 
-      // Verifica si hay ingredientes o medidas nulos y finaliza el bucle
-      if (ingredient == null || measure == null) {
-         break;
-      } else if (!ingredient.trim() && !measure.trim()) {
-         break;
-      }
+		// Verifica si hay ingredientes o medidas nulos y finaliza el bucle
+		if (ingredient == null || measure == null) {
+			break;
+		} else if (!ingredient.trim() && !measure.trim()) {
+			break;
+		}
 
-      // Agrega el elemento de lista con el nombre del ingrediente y su medida
-      ingredientsList += `<li me-3>${ingredient} - ${measure}</li>`;
-   }
+		// Agrega el elemento de lista con el nombre del ingrediente y su medida
+		ingredientsList += `<li me-3>${ingredient} - ${measure}</li>`;
+	}
 
-   return ingredientsList;
+	return ingredientsList;
 }
-
 
 /**
  * Elementos de categorías.
- * 
+ *
  * Crea y devuelve el HTML para mostrar las categorías.
  * @param {Object} categories - Objeto que contiene las categorías de comidas.
  * @returns {string} - HTML con las categorías.
  */
 export function createCategory(categories) {
-   const categoriesList = categories.meals;
-   let template = '';
+	const categoriesList = categories.meals;
+	let template = "";
 
-   // Genera el HTML para cada categoría
-   categoriesList.forEach(category => {
-      template +=
-      `<div class="border-bottom-white border-bottom-brown-hover px-3 py-2" id="category-btn">
+	// Genera el HTML para cada categoría
+	categoriesList.forEach((category) => {
+		template += `<div class="border-bottom-white border-bottom-brown-hover px-3 py-2" id="category-btn">
          <h5>${category.strCategory}</h5>
       </div>`;
-   });
+	});
 
-   return template;
+	return template;
 }
