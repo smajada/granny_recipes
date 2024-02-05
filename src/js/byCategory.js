@@ -29,19 +29,24 @@ export async function getByCategory(category) {
 	recipesContainer.innerHTML = "";
 	modalContainer.innerHTML = "";
 
-	recipes.meals.forEach(async (recipe) => {
+	for (const recipe of recipes.meals) {
 		const recipeById = await getById(recipe.idMeal);
 
 		recipesContainer.innerHTML += createCard(recipeById);
 		modalContainer.innerHTML += createModal(recipeById);
+	}
 
-		// Add event listener to heart buttons
-		const heartButtons = document.querySelectorAll(".favBtn");
-		heartButtons.forEach((heartButton) => {
-			heartButton.addEventListener("click", () =>
-				addRecipeToIndexedDB(recipeById)
+	// Add event listener to heart buttons
+	recipesContainer.addEventListener("click", (event) => {
+		const target = event.target;
+		if (target.classList.contains("bi-heart-fill-hover")) {
+			const recipeId = target.id.split("_")[1];
+			const selectedRecipe = recipes.meals.find(
+				(recipe) => recipe.idMeal === recipeId
 			);
-		});
+
+			addRecipeToIndexedDB(selectedRecipe);
+		}
 	});
 }
 

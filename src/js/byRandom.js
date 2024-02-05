@@ -18,7 +18,7 @@ export function createCard(recipe) {
          <div class="card-body">
             <h5 class="card-title">${recipe.meals[0].strMeal}</h5>
             <p class="card-text">${recipe.meals[0].strCategory}</p>
-            <a href="#" class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover favBtn"></a>
+            <a href="#" class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="favBtn_${recipe.meals[0].idMeal}"></a>
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipe.meals[0].idMeal}">
                More info
             </button>
@@ -127,14 +127,21 @@ export async function getByRandom() {
 		randomRecipes.forEach((randomRecipe) => {
 			recipesContainer.innerHTML += createCard(randomRecipe);
 			modalContainer.innerHTML += createModal(randomRecipe);
+		});
 
-			// Add event listener to heart buttons
-			const heartButtons = document.querySelectorAll(".favBtn");
-			heartButtons.forEach((heartButton) => {
-				heartButton.addEventListener("click", () =>
-					addRecipeToIndexedDB(randomRecipe)
+		// Add event listener to heart buttons using event delegation
+		recipesContainer.addEventListener("click", (event) => {
+			const target = event.target;
+			if (target.classList.contains("bi-heart-fill-hover")) {
+				const recipeId = target.id.split("_")[1];
+				const selectedRecipe = randomRecipes.find(
+					(recipe) => recipe.meals[0].idMeal === recipeId
 				);
-			});
+
+				if (selectedRecipe) {
+					addRecipeToIndexedDB(selectedRecipe);
+				}
+			}
 		});
 	}
 }
