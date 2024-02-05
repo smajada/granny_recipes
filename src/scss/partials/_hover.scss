@@ -12,3 +12,8 @@
    border-bottom: 3px solid $custom_brown;
    cursor: pointer;
 }
+
+.border-bottom-dark-hover:hover{
+   border-bottom: 3px solid black;
+   cursor: pointer;
+}
