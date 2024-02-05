@@ -1,3 +1,4 @@
+import { addRecipeToIndexedDB } from "./indexedDB";
 import { createCard, createModal, createCategory } from './createElements';
 import { getById } from './byId';
 
@@ -40,8 +41,24 @@ export async function getByCategory(category) {
       recipesContainer.innerHTML += createCard(recipeById);
       modalContainer.innerHTML += createModal(recipeById);
    });
+	// Add event listener to heart buttons
+	recipesContainer.addEventListener("click", (event) => {
+		const target = event.target;
+		if (target.classList.contains("bi-heart-fill-hover")) {
+			const recipeId = target.id.split("_")[1];
+			const selectedRecipe = recipes.meals.find(
+				(recipe) => recipe.idMeal === recipeId
+			);
+
+			addRecipeToIndexedDB(selectedRecipe);
+		}
+	});
 }
 
+export async function listCategories() {
+	if (categoriesContainer !== null) {
+		const promise = await fetch(urlCategories);
+		const categories = await promise.json();
 
 
 /**

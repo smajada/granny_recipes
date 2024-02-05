@@ -3,6 +3,7 @@ import { createCard, createModal } from "./createElements";
 const urlRecipes = "https://www.themealdb.com/api/json/v1/1/random.php";
 const recipesContainer = document.getElementById("recipes-container");
 const modalContainer = document.getElementById("modal-container");
+import { addRecipeToIndexedDB } from "./indexedDB";
 const spinnerLoader = document.getElementById('spinner-loader');
 
 /**
@@ -13,7 +14,7 @@ const spinnerLoader = document.getElementById('spinner-loader');
  * @returns {Promise<void>} - Promesa que resuelve cuando se han obtenido y mostrado las recetas.
  */
 export async function getByRandom() {
-   const promises = [];
+	const promises = [];
 
    // Verifica la existencia de los contenedores de recetas y modales
    if (recipesContainer !== null && modalContainer !== null) {
@@ -37,5 +38,18 @@ export async function getByRandom() {
          modalContainer.innerHTML += createModal(randomRecipe);
       });
    }
+		recipesContainer.addEventListener("click", (event) => {
+			const target = event.target;
+			if (target.classList.contains("bi-heart-fill-hover")) {
+				const recipeId = target.id.split("_")[1];
+				const selectedRecipe = randomRecipes.find(
+					(recipe) => recipe.meals[0].idMeal === recipeId
+
+				);
+				if (selectedRecipe) {
+					addRecipeToIndexedDB(selectedRecipe);
+				}
+			}
+		});
 }
 

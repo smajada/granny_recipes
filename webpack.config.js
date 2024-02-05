@@ -19,11 +19,15 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./src/index.html",
-			filename: "index.html"
+			filename: "index.html",
 		}),
 		new HtmlWebpackPlugin({
 			template: "./src/discover.html",
-			filename: "discover.html"
+			filename: "discover.html",
+		}),
+		new HtmlWebpackPlugin({
+			template: "./src/favorites.html",
+			filename: "favorites.html",
 		}),
 	],
 	module: {
