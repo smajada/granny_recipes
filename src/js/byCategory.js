@@ -42,10 +42,8 @@ export async function getByCategory(category) {
 		modalContainer.innerHTML += createModal(recipeById);
 	});
 
-	console.log(recipes.meals);
-
 	// Add event listener to heart buttons
-	recipesContainer.addEventListener("click", (event) => {
+	recipesContainer.addEventListener("click", async (event) => {
 		const target = event.target;
 		if (target.classList.contains("bi-heart-fill")) {
 			const recipeId = target.id.split("_")[1];
@@ -54,7 +52,9 @@ export async function getByCategory(category) {
 				(recipe) => recipe.idMeal === recipeId
 			);
 
-			addRecipeToIndexedDB(selectedRecipe);
+			const recipe = await getById(recipeId);
+
+			addRecipeToIndexedDB(recipe);
 		}
 	});
 }
