@@ -14,9 +14,8 @@ export function createCard(recipe, isFavorite) {
 
 	if (isFavorite) {
 		// Estructura de la tarjeta en formato HTML
-		// Estructura de la tarjeta en formato HTML
 		template = `
-   <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+   <div class="flex-item mb-4">
       <div class="card mx-auto" style="width: 18rem;">
          <img src="${recipeImage}" class="card-img-top" alt="Food photo">
          <div class="card-body">
@@ -32,21 +31,22 @@ export function createCard(recipe, isFavorite) {
       </div>
    </div>`;
 	} else {
-		template = ` <div class="col-3">
-      <div class="card mb-4" style="width: 18rem;">
-         <img src="${recipeImage}" class="card-img-top" alt="Food photo">
-         <div class="card-body">
-            <h5 class="card-title">${recipeTitle}</h5>
-            <p class="card-text">${recipeCategory}</p>
-            <div class="d-flex justify-content-between">
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
-            More info
-            </button>
-            <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+      template = ` 
+      <div class="flex-item mb-4">
+         <div class="card mx-auto" style="width: 18rem;">
+            <img src="${recipeImage}" class="card-img-top" alt="Food photo">
+            <div class="card-body">
+               <h5 class="card-title">${recipeTitle}</h5>
+               <p class="card-text">${recipeCategory}</p>
+               <div class="d-flex justify-content-between">
+               <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
+               More info
+               </button>
+               <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+               </div>
             </div>
          </div>
-      </div>
-   </div>`;
+      </div>`;
 	}
 
 	return template;
