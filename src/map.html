@@ -1,44 +1,11 @@
 <html>
 
 <head>
-  <title>Geolocation</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <style>
-    /* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-    #map {
-      height: 80%;
-    }
-
-    /* 
- * Optional: Makes the sample page fill the window. 
- */
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .custom-map-control-button {
-      background-color: #fff;
-      border: 0;
-      border-radius: 2px;
-      box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-      margin: 10px;
-      padding: 0 0.5em;
-      font: 400 18px Roboto, Arial, sans-serif;
-      overflow: hidden;
-      height: 40px;
-      cursor: pointer;
-    }
-
-    .custom-map-control-button:hover {
-      background: rgb(235, 235, 235);
-    }
-  </style>
+  <title> Recipes around you</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Merienda:wght@300;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./assets/logo_brown.svg">
 </head>
 
 <body>
@@ -88,7 +55,7 @@
     <div class="container my-1">
 
       <!-- Recipes container -->
-      <div id="map"></div>
+      <div id="map" class="h-75"></div>
 
 
       <!-- Modal container -->
