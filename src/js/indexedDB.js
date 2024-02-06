@@ -104,7 +104,7 @@ export function deleteRecipeFromIndexedDB(recipeId) {
 
 		transaction.oncomplete = () => {
 			const favoritesContainer = document.getElementById("favorites-container");
-			showNotification("Recipe removed from favorites", "danger");
+			showNotification("Recipe removed from favorites", "info");
 
 			favoritesContainer.innerHTML = "";
 			getRecipesFromIndexedDB();
@@ -113,7 +113,7 @@ export function deleteRecipeFromIndexedDB(recipeId) {
 		transaction.onerror = () => {
 			showNotification(
 				"Error removing recipe from favorites." + transaction.error,
-				"info"
+				"error"
 			);
 		};
 	};
