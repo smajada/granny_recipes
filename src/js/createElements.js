@@ -15,7 +15,7 @@ export function createCard(recipe, isFavorite) {
 	if (isFavorite) {
 		// Estructura de la tarjeta en formato HTML
 		template = `
-   <div class="flex-item mb-4">
+   <div class="mb-4">
       <div class="card mx-auto" style="width: 18rem;">
          <img src="${recipeImage}" class="card-img-top" alt="Food photo">
          <div class="card-body">
@@ -78,11 +78,9 @@ export function createModal(recipe) {
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body d-flex flex-column">
-
-                  <div class="d-flex h-auto">
+                  <div class="d-flex flex-wrap justify-content-around h-auto">
                      <img src="${recipeImage}" class="h-400 rounded" alt="Food photo"/>
-
-                     <div class="d-flex flex-grow-1 justify-content-around align-items-start">
+                     <div class="d-flex flex-grow-1 justify-content-around align-items-start mt-5">
                         <div class="d-flex flex-column justify-content-start">
                            <h3>Ingredients</h3>
                            <ul class="mt-2">
@@ -96,7 +94,6 @@ export function createModal(recipe) {
                         </div>
                      </div>
                   </div>
-
                   <div class="mt-3">
                      <h3>Instructions</h3>
                      <p class="text-justify">${recipeInstructions}</p>
