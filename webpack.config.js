@@ -29,6 +29,10 @@ module.exports = {
 			template: "./src/favorites.html",
 			filename: "favorites.html",
 		}),
+		new HtmlWebpackPlugin({
+			template: "./src/map.html",
+			filename: "map.html",
+		}),
 	],
 	module: {
 		rules: [
