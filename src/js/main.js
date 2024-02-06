@@ -9,6 +9,7 @@ import {
 	getRecipesFromIndexedDB,
 	deleteRecipeFromIndexedDB,
 } from "./indexedDB";
+import { initMap } from "./geolocation";
 
 const showMoreBtn = document.getElementById("showMore-btn");
 const categoriesContainer = document.getElementById("categories-container");
