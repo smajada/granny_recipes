@@ -16,8 +16,8 @@ export function createCard(recipe, isFavorite) {
 		// Estructura de la tarjeta en formato HTML
 		// Estructura de la tarjeta en formato HTML
 		template = `
-   <div class="col-3">
-      <div class="card mb-4" style="width: 18rem;">
+   <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+      <div class="card mx-auto" style="width: 18rem;">
          <img src="${recipeImage}" class="card-img-top" alt="Food photo">
          <div class="card-body">
             <h5 class="card-title">${recipeTitle}</h5>
