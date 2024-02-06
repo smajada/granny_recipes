@@ -12,63 +12,70 @@
 </head>
 
 <body>
-  <!-- Navbar menu and Logo -->
-  <nav class="navbar navbar-expand-lg bg-beige d-flex justify-content-between">
-    <div class="ms-4">
-      <a class="navbar-brand" href="/" data-bs-toggle="tooltip" data-bs-title="Go back to the main page"
-        data-bs-placement="bottom">
-        <img src="./assets/logo_with_text.svg" alt="Logo with text">
-      </a>
-    </div>
-    <div class="me-5">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav d-flex">
-          <a class="nav-link" href="./discover.html" data-bs-toggle="tooltip" data-bs-title="Discover new recipes"
-            data-bs-placement="bottom">
-            Discover
-          </a>
-          <a class="nav-link active" href="./favorites.html" aria-current="page" data-bs-toggle="tooltip"
-            data-bs-title="Go to your favourite recipes" data-bs-placement="bottom">
-            My favourites
-          </a>
-          <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-title="Explore nearby recipes"
-            data-bs-placement="bottom">
-            Recipes around me
-          </a>
+  <header>
+    <!-- Navbar menu and Logo -->
+    <nav class="navbar navbar-expand-lg bg-beige">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="./assets/logo_with_text.svg" class="w-250" alt="Logo with text">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./discover.html" data-bs-toggle="tooltip"
+                data-bs-title="Discover new recipes" data-bs-placement="bottom">
+                Discover
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./favorites.html" data-bs-toggle="tooltip"
+                data-bs-title="Your favorite recipes" data-bs-placement="bottom">
+                Favorites
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-bs-toggle="tooltip"
+                data-bs-title="Explore nearby recipes" data-bs-placement="bottom">
+                Recipes around you
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- Section title -->
-  <div class="py-4">
-    <h1 class="text-center">Favorites</h1>
-  </div>
-
-  <!-- Main page container -->
-  <div class="container my-4">
-
-    <!-- Notifications container -->
-    <div class="row" id="notification-container">
+  <main>
+    <!-- Section title -->
+    <div class="py-4">
+      <h1 class="text-center">Favorites</h1>
     </div>
 
-    <!-- Recipes container -->
-    <div class="row" id="favorites-container">
+    <!-- Main page container -->
+    <div class="container my-4">
 
+      <!-- Notifications container -->
+      <div class="row" id="notification-container">
+      </div>
+
+      <!-- Recipes container -->
+      <div class="row" id="favorites-container">
+        <p>No data.</p>
+      </div>
+
+      <!-- Modal container -->
+      <div id="modal-container">
+      </div>
     </div>
-
-    <!-- Modal container -->
-    <div id="modal-container">
-    </div>
-
-
-  </div>
+</main>
 
   <!-- Footer -->
-  <footer>
-    <div class="d-flex justify-content-center bg-beige">
-      <p class="text-center">© 2024 - All rights reserved</p>
-    </div>
+  <footer class="bg-beige d-flex justify-content-center align-items-center py-4">
+    <p>© 2024 - All rights reserved</p>
   </footer>
 </body>
 

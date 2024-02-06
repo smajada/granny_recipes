@@ -1,4 +1,4 @@
-// Tamaño máximo de HEIGHT de 50px - 1000px
+// Tamaño de HEIGHT de 50px - 1000px
 // Intervalo de 50
 @for $i from 2 through 20 {
    .h-#{$i * 50} {

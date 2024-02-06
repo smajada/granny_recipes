@@ -12,93 +12,104 @@
 </head>
 
 <body>
-   <!-- Navbar menu and Logo -->
-   <nav class="navbar navbar-expand-lg bg-beige d-flex justify-content-between">
-      <div class="ms-4">
-         <a class="navbar-brand" href="/" data-bs-toggle="tooltip" data-bs-title="Go back to the main page"
-            data-bs-placement="bottom">
-            <img src="./assets/logo_with_text.svg" alt="Logo with text">
-         </a>
-      </div>
-      <div class="me-5">
-         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav d-flex">
-               <a class="nav-link active" aria-current="page" href="./discover.html" data-bs-toggle="tooltip"
-                  data-bs-title="Discover new recipes" data-bs-placement="bottom">
-                  Discover
-               </a>
-               <a class="nav-link" href="./favorites.html" data-bs-toggle="tooltip"
-                  data-bs-title="Go to your favourite recipes" data-bs-placement="bottom">
-                  My favourites
-               </a>
-               <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-title="Explore nearby recipes"
-                  data-bs-placement="bottom">
-                  Recipes around me
-               </a>
+   <header>
+      <!-- Navbar menu and Logo -->
+      <nav class="navbar navbar-expand-lg bg-beige">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+               <img src="./assets/logo_with_text.svg" class="w-250" alt="Logo with text">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+               aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="./discover.html" data-bs-toggle="tooltip"
+                     data-bs-title="Discover new recipes" data-bs-placement="bottom">
+                        Discover
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="./favorites.html" data-bs-toggle="tooltip"
+                     data-bs-title="Your favourite recipes" data-bs-placement="bottom">
+                        Favourites
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="#" data-bs-toggle="tooltip"
+                     data-bs-title="Explore nearby recipes" data-bs-placement="bottom">
+                        Recipes around you
+                     </a>
+                  </li>
+               </ul>
             </div>
          </div>
-      </div>
-   </nav>
+      </nav>
+   </header>
 
-   <!-- Section title -->
-   <div class="py-4">
-      <h1 class="text-center">
-         <a href="./discover.html" class="text-decoration-none text-dark border-bottom-dark-hover">
-            Discover
-         </a>
-      </h1>
-   </div>
-
-   <!-- Categories container -->
-   <div class="border-bottom d-flex justify-content-center" id="categories-container">
-   </div>
-
-   <!-- Main page container -->
-   <div class="container my-4">
-
-      <!-- Notifications container -->
-      <div class="row" id="notification-container">
+   <main>
+      <!-- Section title -->
+      <div class="py-4">
+         <h1 class="text-center">
+            <a href="./discover.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+               Discover
+            </a>
+         </h1>
       </div>
 
-      <!-- Search bar -->
-      <div class="mb-5 d-flex justify-content-between">
-         <h2 id="category-title">Gastronomic highlights</h2>
-         <form class="d-flex justify-content-center w-350">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-            <button class="btn btn-warning" type="button" id="search-btn">Search</button>
-         </form>
-      </div>
-
-      <div>
-         <!-- Recipes container -->
-         <div class="row" id="recipes-container">
-         </div>
-
-         <!-- Spinner loader -->
-         <div class="d-flex justify-content-center align-items-center vh-50" id="spinner-loader">
-            <div class="spinner-border text-warning" role="status">
-               <span class="visually-hidden">Loading...</span>
+      <!-- Categories container -->
+      <div class="border-bottom">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="d-flex overflow-x-auto" id="categories-container">
+               </div>
             </div>
          </div>
       </div>
 
-      <!-- Modal container -->
-      <div id="modal-container">
-      </div>
+      <!-- Main page container -->
+      <div class="container my-4">
 
-      <!-- Show more button -->
-      <div class="d-flex justify-content-center">
-         <button type="button" class="btn btn-secondary text-white my-4" id="showMore-btn">
-            Show more
-         </button>
+         <!-- Notifications container -->
+         <div class="row" id="notification-container">
+         </div>
+
+         <!-- Category title -->
+         <div class="mb-5 d-flex justify-content-between">
+            <h2 id="category-title">Gastronomic highlights</h2>
+         </div>
+
+         <div class="">
+            <!-- Recipes container -->
+            <div class="row" id="recipes-container">
+            </div>
+
+            <!-- Spinner loader -->
+            <div class="d-flex justify-content-center align-items-center vh-50" id="spinner-loader">
+               <div class="spinner-border text-warning" role="status">
+                  <span class="visually-hidden">Loading...</span>
+               </div>
+            </div>
+         </div>
+
+         <!-- Modal container -->
+         <div id="modal-container">
+         </div>
+
+         <!-- Show more button -->
+         <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary text-white my-4" id="showMore-btn">
+               Show more
+            </button>
+         </div>
       </div>
-   </div>
+   </main>
 
    <!-- Footer -->
-   <footer>
-      <div class="d-flex justify-content-center bg-beige">
-         <p class="text-center">© 2024 - All rights reserved</p>
-      </div>
+   <footer class="bg-beige d-flex justify-content-center align-items-center py-4">
+      <p>© 2024 - All rights reserved</p>
    </footer>
 </body>
 
