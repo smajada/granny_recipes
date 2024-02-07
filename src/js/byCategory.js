@@ -38,8 +38,8 @@ export async function getByCategory(category) {
 		showMoreBtn.style.display = "none";
 
 		// Agrega las tarjetas y modales al HTML
-		recipesContainer.innerHTML += createCard(recipeById, true);
-		modalContainer.innerHTML += createModal(recipeById);
+		recipesContainer.innerHTML += createCard(recipeById, false);
+		modalContainer.innerHTML += createModal(recipeById, false);
 	});
 
 	// Add event listener to heart buttons

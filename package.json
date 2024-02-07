@@ -14,8 +14,12 @@
 	"devDependencies": {
 		"autoprefixer": "^10.4.17",
 		"css-loader": "^6.9.1",
+		"file-loader": "^6.2.0",
 		"html-loader": "^5.0.0",
 		"html-webpack-plugin": "^5.6.0",
+		"image-minimizer-webpack-plugin": "^4.0.0",
+		"imagemin": "^8.0.1",
+		"mini-css-extract-plugin": "^2.8.0",
 		"postcss-loader": "^8.0.0",
 		"sass": "^1.70.0",
 		"sass-loader": "^14.0.0",
@@ -27,6 +31,7 @@
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.16.2",
 		"@popperjs/core": "^2.11.8",
-		"bootstrap": "^5.3.2"
+		"bootstrap": "^5.3.2",
+		"bootstrap-icons": "^1.11.3"
 	}
 }

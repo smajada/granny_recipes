@@ -24,7 +24,7 @@ export function createCard(recipe, isFavorite) {
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
             More info
             </button>
-            <button class="btn btn-dark bi bi-x-circle bi-x-circle-hover" id="recipe_${recipeId}"></button>
+            <button class="btn btn-dark" id="recipe_${recipeId}"><i class="bi bi-x-circle bi-x-circle-hover"></i></button>
             </div>
          </div>
       </div>
@@ -42,7 +42,7 @@ export function createCard(recipe, isFavorite) {
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
             More info
             </button>
-            <button class="btn btn-dark bi bi-heart-fill bi-heart-fill-hover" id="recipe_${recipeId}"></button>
+            <button class="btn btn-dark" id="recipe_${recipeId}"><i class="bi bi-heart-fill bi-heart-fill-hover"></i></button>
             </div>
          </div>
       </div>
@@ -70,8 +70,6 @@ export function createModal(recipe, isFavorite) {
 	const ingredientsList = createIngredientsList(recipe.meals[0]);
 	let template = "";
 
-	console.log(recipeComment);
-
 	if (isFavorite) {
 		// Estructura del modal en formato HTML
 		template = `
@@ -94,7 +92,9 @@ export function createModal(recipe, isFavorite) {
                      </div>
                      <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Comments</h3>
-                        <p class="text-justify">${recipeComment ? recipeComment : "No comments yet"}</p>
+                        <p class="text-justify">${
+													recipeComment ? recipeComment : "No comments yet"
+												}</p>
                         </div>
                      </div>
                   </div>
