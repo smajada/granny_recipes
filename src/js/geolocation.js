@@ -1,4 +1,4 @@
-let map, infoWindow, customMarker;
+let map, infoWindow, customMarker, accuracyCircle;
 
 /**
  * Initializes the map and displays the user's current location.
@@ -13,34 +13,47 @@ export function initMap() {
 					lng: position.coords.longitude,
 				};
 
+				// Crear mapa
 				map = new google.maps.Map(document.getElementById("map"), {
-					center: { lat: pos.lat, lng: pos.lng },
+					center: pos,
 					zoom: 15,
 				});
 
-				infoWindow = new google.maps.InfoWindow();
+				// Crear círculo de precisión amarillo
+				accuracyCircle = new google.maps.Circle({
+					map: map,
+					fillColor: "#a6631b",
+					fillOpacity: 0.3,
+					strokeColor: "#a6631b",
+					strokeOpacity: 0.8,
+					strokeWeight: 2,
+					center: pos,
+					radius: position.coords.accuracy, // Configurar el radio según la precisión
+				});
 
-				// Creamos un marcador personalizado beige
+				// Crear marcador personalizado beige
 				if (!customMarker) {
 					customMarker = new google.maps.Marker({
 						position: pos,
 						map: map,
 						title: "This is you, granny!",
-						icon: {
-							path: google.maps.SymbolPath.CIRCLE,
-							scale: 10,
-							fillColor: "#A6631B",
-							fillOpacity: 1,
-							strokeWeight: 0,
-						},
 					});
 				} else {
 					customMarker.setPosition(pos);
+					// Configurar el círculo de precisión
+					accuracyCircle.setCenter(pos);
+					accuracyCircle.setRadius(position.coords.accuracy);
 				}
 
-				infoWindow.setPosition(pos);
-				infoWindow.setContent("Here's our granny!");
-				infoWindow.open(map);
+				// Configurar la ventana de información
+				infoWindow = new google.maps.InfoWindow({
+					content: "Here's our granny!",
+				});
+
+				// Mostrar la ventana de información
+				infoWindow.open(map, customMarker);
+
+				// Centrar el mapa en la posición actual
 				map.setCenter(pos);
 			},
 			() => {
