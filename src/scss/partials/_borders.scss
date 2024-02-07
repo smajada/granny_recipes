@@ -5,3 +5,43 @@
 .border-bottom-white{
    border-bottom: 3px solid white;
 }
+
+.border-bottom-beige{
+   border-bottom: 3px solid $custom_beige;
+}
+
+.border-start-dark{
+   border-left: 3px solid black;
+}
+
+.border-end-dark{
+   border-right: 3px solid black;
+}
+
+.border-none{
+   border: none;
+}
+
+@media (max-width: 768px) {
+   sm-border-end-dark{
+      border-right: 3px solid black;
+   }
+}
+
+@media (max-width: 768px) {
+   sm-border-start-dark{
+      border-right: 3px solid black;
+   }
+}
+
+@media (max-width: 576px) {
+   sm-border-start-dark{
+      border-right: 3px solid black;
+   }
+}
+
+@media (max-width: 576px) {
+   sm-border-end-dark{
+      border-right: 3px solid black;
+   }
+}
