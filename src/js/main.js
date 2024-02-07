@@ -2,6 +2,7 @@
 import "../scss/styles.scss";
 // Importa todo el JS de Bootstrap
 import * as bootstrap from "bootstrap";
+require("bootstrap-icons/font/bootstrap-icons.css");
 import { getByCategory, listCategories } from "./byCategory";
 import { getByRandom } from "./byRandom";
 import {
