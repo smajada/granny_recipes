@@ -84,7 +84,7 @@ export function createModal(recipe, isFavorite) {
             </div>
             <div class="modal-body d-flex flex-column">
                <div class="d-flex flex-wrap justify-content-around h-auto">
-                  <img src="${recipeImage}" class="h-400 rounded" alt="Food photo"/>
+                  <img src="${recipeImage}" class="h-lg-400 h-300 rounded" alt="Food photo"/>
                   <div class="d-flex flex-grow-1 justify-content-around align-items-start mt-5">
                      <div class="d-flex flex-column justify-content-start">
                         <h3>Ingredients</h3>
@@ -94,9 +94,7 @@ export function createModal(recipe, isFavorite) {
                      </div>
                      <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Comments</h3>
-                        <p class="text-justify">${
-													recipeComment ? recipeComment : "No comments yet"
-												}</p>
+                        <p class="text-justify">${recipeComment ? recipeComment : "No comments yet"}</p>
                         </div>
                      </div>
                   </div>
@@ -145,7 +143,7 @@ export function createModal(recipe, isFavorite) {
             </div>
             <div class="modal-body d-flex flex-column">
                <div class="d-flex flex-wrap justify-content-around h-auto">
-                  <img src="${recipeImage}" class="h-400 rounded" alt="Food photo"/>
+                  <img src="${recipeImage}" class="h-lg-400 h-300 rounded" alt="Food photo"/>
                   <div class="d-flex flex-grow-1 justify-content-around align-items-start mt-5">
                      <div class="d-flex flex-column justify-content-start">
                         <h3>Ingredients</h3>
