@@ -107,7 +107,7 @@ export function createModal(recipe, isFavorite) {
                   </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button class="btn btn-primary" data-bs-target="#commentModalToggle_${recipeId}" data-bs-toggle="modal">Add a comment</button>
+               <button class="btn btn-primary" data-bs-target="#commentModalToggle_${recipeId}" data-bs-toggle="modal">Update comment</button>
             </div>
          </div>
       </div>
