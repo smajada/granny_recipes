@@ -24,7 +24,7 @@ export function createCard(recipe, isFavorite) {
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
             More info
             </button>
-            <button class="btn btn-dark" id="recipe_${recipeId}"><i class="bi bi-x-circle bi-x-circle-hover"></i></button>
+            <button class="btn btn-dark"><i id="recipe_${recipeId}" class="bi bi-x-circle bi-x-circle-hover"></i></button>
             </div>
          </div>
       </div>
@@ -42,7 +42,7 @@ export function createCard(recipe, isFavorite) {
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_${recipeId}">
             More info
             </button>
-            <button class="btn btn-dark" id="recipe_${recipeId}"><i class="bi bi-heart-fill bi-heart-fill-hover"></i></button>
+            <button class="btn btn-dark"><i id="recipe_${recipeId}" class="bi bi-heart-fill bi-heart-fill-hover"></i></button>
             </div>
          </div>
       </div>
