@@ -23,7 +23,6 @@
 }
 
 
-
 @for $i from 1 through 10 {
    .vh-#{$i * 10} {
       height: #{$i * 10}vh;
@@ -31,6 +30,12 @@
 
    .vw-#{$i * 10} {
       width: #{$i * 10}vw;
+   }
+}
+
+@media only screen and (min-width: 1367px) {
+   .lg-justify-content-center {
+      justify-content: center;
    }
 }
 
