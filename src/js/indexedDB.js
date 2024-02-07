@@ -147,6 +147,10 @@ export function updateCommentInIndexedDB(recipeId, comment) {
 
 				objectStore.put(recipe);
 				showNotification("Comment updated in favorites", "success");
+
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
 			} else {
 				showNotification("Recipe not found in favorites", "danger");
 			}

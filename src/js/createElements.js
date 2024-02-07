@@ -95,26 +95,24 @@ export function createModal(recipe, isFavorite) {
                      <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Comments</h3>
                         <p class="text-justify">${
-													recipeComment !== ""
-														? recipeComment
-														: "No comments yet"
+													recipeComment ? recipeComment : "No comments yet"
 												}</p>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="mt-3">
+               <div class="m-3">
                   <h3>Instructions</h3>
                   <p class="text-justify">${recipeInstructions}</p>
                   </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button class="btn btn-primary" data-bs-target="#commentModalToggle" data-bs-toggle="modal">Add a comment</button>
+               <button class="btn btn-primary" data-bs-target="#commentModalToggle_${recipeId}" data-bs-toggle="modal">Add a comment</button>
             </div>
          </div>
       </div>
    </div>
-   <div class="modal fade" id="commentModalToggle" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" style="display: none;" aria-hidden="true">
+   <div class="modal fade" id="commentModalToggle_${recipeId}" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -129,8 +127,7 @@ export function createModal(recipe, isFavorite) {
         </div>
           </div>
           <div class="modal-footer">
-          <button class="btn btn-primary update-btn" id="update-btn_${recipeId}">Update comment</button>
-          <button class="btn btn-primary" data-bs-target="#modal_${recipeId}" data-bs-toggle="modal">Back to recipe</button>
+          <button class="btn btn-primary update-btn" id="update-btn_${recipeId}" data-bs-dismiss="modal">Update comment</button>
           </div>
         </div>
       </div>
