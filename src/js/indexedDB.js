@@ -69,8 +69,8 @@ export function getRecipesFromIndexedDB() {
 			const modalContainer = document.getElementById("modal-container");
 
 			recipes.forEach((recipe) => {
-				const recipeCard = createCard(recipe.recipe, false);
-				const recipeModal = createModal(recipe.recipe);
+				const recipeCard = createCard(recipe.recipe, true);
+				const recipeModal = createModal(recipe.recipe, true);
 
 				favoritesContainer.innerHTML += recipeCard;
 				modalContainer.innerHTML += recipeModal;
@@ -92,6 +92,11 @@ export function getRecipesFromIndexedDB() {
 	};
 }
 
+/**
+ * Deletes a recipe from the IndexedDB.
+ *
+ * @param {number} recipeId - The ID of the recipe to be deleted.
+ */
 export function deleteRecipeFromIndexedDB(recipeId) {
 	const db = openIndexedDB();
 
@@ -114,6 +119,47 @@ export function deleteRecipeFromIndexedDB(recipeId) {
 			showNotification(
 				"Error removing recipe from favorites." + transaction.error,
 				"error"
+			);
+		};
+	};
+}
+
+/**
+ * Updates a comment to the recipe in the IndexedDB and if it doesn't exist, it creates it.
+ *
+ * @param {number} recipeId - The ID of the recipe to be updated.
+ * @param {string} comment - The comment to be added.
+ */
+export function updateCommentInIndexedDB(recipeId, comment) {
+	const db = openIndexedDB();
+
+	db.onsuccess = (event) => {
+		const db = event.target.result;
+		const transaction = db.transaction("recipes", "readwrite");
+		const objectStore = transaction.objectStore("recipes");
+
+		const request = objectStore.get(recipeId);
+
+		request.onsuccess = (event) => {
+			const recipe = event.target.result;
+			if (recipe) {
+				recipe.recipe.meals[0].comment = comment;
+
+				objectStore.put(recipe);
+				showNotification("Comment updated in favorites", "success");
+
+				setTimeout(() => {
+					window.location.reload();
+				}, 1000);
+			} else {
+				showNotification("Recipe not found in favorites", "danger");
+			}
+		};
+
+		request.onerror = () => {
+			showNotification(
+				"Error updating comment in favorites." + request.error,
+				"danger"
 			);
 		};
 	};
