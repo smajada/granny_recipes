@@ -1,77 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Merienda:wght@300;500&display=swap"
-    rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="./assets/logo_brown.svg">
-  <!-- Option 1: Include in HTML -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <title>Granny's recipes</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Alice&family=Merienda:wght@300;500&display=swap"
+      rel="stylesheet">
+   <link rel="icon" type="image/x-icon" href="./assets/logo_brown.svg">
+   <title>Granny's recipes</title>
 </head>
 
-<body class="bg-dark">
-  <div class="position-relative">
+<body class="bg-brown">
+   <header>
+      <!-- Nav bar -->
+      <nav class="navbar navbar-expand-lg bg-beige">
+         <div class="container-fluid">
+            <a class="navbar-brand navbar-toggler border-none" href="#">
+               <img src="./assets/logo_with_text.svg" class="w-250" alt="Logo with text">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+               aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-center"  id="navbarTogglerDemo02">
+               <div class="navbar-nav mb-lg-0">
+                  <h1 class="px-5 nav-item">
+                     <a href="./discover.html" aria-current="page"
+                        class="text-dark nav-link border-bottom-beige border-bottom-dark-hover">
+                        Discover
+                     </a>
+                  </h1>
+                  <h1 class="px-5 nav-item">
+                     <a href="./map.html" aria-current="page"
+                        class="text-dark nav-link border-bottom-beige border-bottom-dark-hover">
+                        Recipes around you
+                     </a>
+                  </h1>
+                  <h1 class="px-5 nav-item">
+                     <a href="./favorites.html" aria-current="page"
+                        class="text-dark nav-link border-bottom-beige border-bottom-dark-hover">
+                        Favorites
+                     </a>
+                  </h1>
+               </div>
+            </div>
+         </div>
+      </nav>
+   
+      <!-- Section title -->
+      <!-- <div class="py-4 d-flex justify-content-center align-items-center bg-beige shadow-sm">
+         <h1 class="text-center px-5 sm-border-end-dark">
+            <a href="./discover.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+               Discover
+            </a>
+         </h1>
+         <h1 class="text-center px-5">
+            <a href="./map.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+               Recipes around you
+            </a>
+         </h1>
+         <h1 class="text-center px-5 sm-border-start-dark">
+            <a href="./favorites.html" class="text-decoration-none text-dark border-bottom-dark-hover">
+               Favorites
+            </a>
+         </h1>
+      </div> -->
+   </header>
 
-    <!-- Logo -->
-    <img class="position-absolute m-3" src="./assets/logo_beige.svg" alt="Logo en beige">
+   <main class="container mt-5">
+      <!-- Carousel -->
+      <div class="container mb-5">
+         <div id="carouselExampleFade" class="carousel slide carousel-fade shadow-lg" data-bs-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <img src="./assets/landing.png" class="d-block w-100" alt="Food photo">
+               </div>
+               <div class="carousel-item">
+                  <img src="./assets/dessert.jpg" class="d-block w-100" alt="Food photo">
+               </div>
+               <div class="carousel-item">
+                  <img src="./assets/ingredients.jpeg" class="d-block w-100" alt="Food photo">
+               </div>
+               <div class="carousel-item">
+                  <img src="./assets/tomato_and_pasta.jpg" class="d-block w-100" alt="Food photo">
+               </div>
+               <div class="carousel-item">
+                  <img src="./assets/cooking_3.jpg" class="d-block w-100" alt="Food photo">
+               </div>
 
-    <!-- Carousel -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner opacity-25">
-        <div class="carousel-item active">
-          <img src="./assets/cutting_tomatos_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/table_food_2_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/table_food_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/vegetables_bg.jpg" class="d-block w-100 vh-100" alt="Food photo">
-        </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+            </button>
+         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+   </main>
+   <!-- Footer -->
+   <div class="container-fluid bg-beige">
+      <footer class="p-5 w-75 mx-auto">
+         <div class="row">
+            <!-- Sección 1 -->
+            <div class="col-6 col-md-2 mb-3">
+               <h5>Explore</h5>
+               <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Recipes</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ingredients</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cuisines</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tips & Tricks</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Videos</a></li>
+               </ul>
+            </div>
 
-    <!-- Navigation menu -->
-    <div class="position-absolute top-50 translate-middle-y navbar-div">
-      <div class="d-flex flex-column">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item display-2">
-            <a class="nav-link no-underline text-light icon-link icon-link-hover" href="./discover.html">
-              Discover
-              <i class="bi bi-arrow-right text-light d-flex align-items-center text-center" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="nav-item display-2">
-            <a class="nav-link no-underline text-light icon-link icon-link-hover" href="./favorites.html">
-              My favorites
-              <i class="bi bi-arrow-right text-light d-flex align-items-center text-center" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="nav-item display-2">
-            <a class="nav-link no-underline text-light icon-link icon-link-hover" href="#">
-              Where am I?
-              <i class="bi bi-arrow-right text-light d-flex align-items-center text-center" aria-hidden="true"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+            <!-- Sección 2 -->
+            <div class="col-6 col-md-2 mb-3">
+               <h5>Categories</h5>
+               <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Appetizers</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Main Dishes</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Desserts</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Healthy</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Seasonal</a></li>
+               </ul>
+            </div>
+
+            <!-- Sección 3 -->
+            <div class="col-6 col-md-2 mb-3">
+               <h5>Quick Links</h5>
+               <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Submit a Recipe</a>
+                  </li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Our Team</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Blog</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Events</a></li>
+               </ul>
+            </div>
+
+            <!-- Sección de Suscripción -->
+            <div class="col-md-5 offset-md-1 mb-3">
+               <form>
+                  <h5>Subscribe to our newsletter</h5>
+                  <p>Monthly digest of what's new and exciting from us.</p>
+                  <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                     <label for="newsletter1" class="visually-hidden">Email address</label>
+                     <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                     <button class="btn btn-secondary" type="button">Subscribe</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+
+         <!-- Información de Derechos de Autor y Redes Sociales -->
+         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-black">
+            <p>© 2024 Granny's recipes | All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+               <li class="ms-3 text-warning-emphasis">
+                  <a class="link-body-emphasis" href="#">
+                     <i class="bi bi-twitter text-black"></i>
+                  </a>
+               </li>
+               <li class="ms-3"><a class="link-body-emphasis" href="#">
+                     <i class="bi bi-instagram text-black"></i>
+               </li>
+               <li class="ms-3"><a class="link-body-emphasis" href="#">
+                     <i class="bi bi-facebook text-black"></i>
+                  </a></li>
+            </ul>
+         </div>
+      </footer>
 </body>
 
 </html>
