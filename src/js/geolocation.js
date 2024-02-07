@@ -13,13 +13,13 @@ export function initMap() {
 					lng: position.coords.longitude,
 				};
 
-				// Crear mapa
+				// Create a map centered at the user's current location
 				map = new google.maps.Map(document.getElementById("map"), {
 					center: pos,
 					zoom: 15,
 				});
 
-				// Crear círculo de precisión amarillo
+				// Create a circle to represent the position's accuracy
 				accuracyCircle = new google.maps.Circle({
 					map: map,
 					fillColor: "#a6631b",
@@ -28,10 +28,10 @@ export function initMap() {
 					strokeOpacity: 0.8,
 					strokeWeight: 2,
 					center: pos,
-					radius: position.coords.accuracy, // Configurar el radio según la precisión
+					radius: position.coords.accuracy,
 				});
 
-				// Crear marcador personalizado beige
+				// Create a marker to represent the user's current location
 				if (!customMarker) {
 					customMarker = new google.maps.Marker({
 						position: pos,
@@ -40,20 +40,17 @@ export function initMap() {
 					});
 				} else {
 					customMarker.setPosition(pos);
-					// Configurar el círculo de precisión
 					accuracyCircle.setCenter(pos);
 					accuracyCircle.setRadius(position.coords.accuracy);
 				}
 
-				// Configurar la ventana de información
+				// Configure the info window
 				infoWindow = new google.maps.InfoWindow({
 					content: "Here's our granny!",
 				});
 
-				// Mostrar la ventana de información
 				infoWindow.open(map, customMarker);
 
-				// Centrar el mapa en la posición actual
 				map.setCenter(pos);
 			},
 			() => {

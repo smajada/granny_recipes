@@ -1,6 +1,7 @@
-// Importa nuestro CSS modificado
+// Import our modified CSS
 import "../scss/styles.scss";
-// Importa todo el JS de Bootstrap
+
+// Import the entire Bootstrap JS
 import * as bootstrap from "bootstrap";
 require("bootstrap-icons/font/bootstrap-icons.css");
 import { getByCategory, listCategories } from "./byCategory";
@@ -19,16 +20,23 @@ const categoriesContainer = document.getElementById("categories-container");
 const favoritesContainer = document.getElementById("favorites-container");
 const modalContainer = document.getElementById("modal-container");
 
-// Bloque de Recetas random
-getByRandom(); // Muestra una receta aleatoria al cargar
+// Tooltips Block
+const tooltipTriggerList = document.querySelectorAll(
+	'[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+	(tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
+
+// Random Recipes Block
+getByRandom();
 if (showMoreBtn) {
-	showMoreBtn.addEventListener("click", () => getByRandom()); // Asocia mostrar más recetas al clicar en el botón
+	showMoreBtn.addEventListener("click", () => getByRandom());
 }
 
-// Bloque de Categorías
-listCategories(); // Lista las categorías al cargar
+// Categories Block
+listCategories();
 if (categoriesContainer) {
-	// Manejo de clics en el contenedor de categorías
 	categoriesContainer.addEventListener("click", function (event) {
 		const categoryBtn = event.target.closest("#category-btn");
 		if (categoryBtn) {
@@ -38,14 +46,6 @@ if (categoriesContainer) {
 		}
 	});
 } else console.log("Categories container not found");
-
-// Bloque de Tooltips
-const tooltipTriggerList = document.querySelectorAll(
-	'[data-bs-toggle="tooltip"]'
-); // Selecciona elementos con tooltips
-const tooltipList = [...tooltipTriggerList].map(
-	(tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-); // Inicializa tooltips
 
 // Favorites
 if (favoritesContainer) {
