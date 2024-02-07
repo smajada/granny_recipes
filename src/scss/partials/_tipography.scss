@@ -1,3 +1,23 @@
+@font-face {
+   font-family: 'Alice';
+   src: url('/src/assets/Alice-Regular.ttf') format('truetype');
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Poppins';
+   src: url('/src/assets/Poppins-Light.ttf') format('truetype');
+   font-weight: 300;
+   font-style: normal;
+}
+
+
+body{
+   font-family: 'Poppins', sans-serif;
+   line-height: 1.5;
+}
+
 @for $i from 1 through 6 {
    h#{$i} {
       font-family: 'Alice', serif;
