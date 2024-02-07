@@ -92,9 +92,7 @@ export function createModal(recipe, isFavorite) {
                      </div>
                      <div class="d-flex flex-column align-items-start w-max-400">
                         <h3 class="text-center">Comments</h3>
-                        <p class="text-justify">${
-													recipeComment ? recipeComment : "No comments yet"
-												}</p>
+                        <p class="text-justify">${recipeComment ? recipeComment : "No comments yet"}</p>
                         </div>
                      </div>
                   </div>
@@ -112,24 +110,22 @@ export function createModal(recipe, isFavorite) {
    </div>
    <div class="modal fade" id="commentModalToggle_${recipeId}" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add a comment to your recipe</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" id="comment_${recipeId}">${
-			recipeComment !== "" ? recipeComment : "No comments yet"
-		}</textarea>
-        </div>
-          </div>
-          <div class="modal-footer">
-          <button class="btn btn-primary update-btn" id="update-btn_${recipeId}" data-bs-dismiss="modal">Update comment</button>
-          </div>
-        </div>
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add a comment to your recipe</h1>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="form-floating">
+                  <textarea class="form-control" style="height: 100px" id="comment_${recipeId}">${recipeComment ? recipeComment : ''}</textarea>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-primary update-btn" id="update-btn_${recipeId}" data-bs-dismiss="modal">Update comment</button>
+            </div>
+         </div>
       </div>
-    </div>
+   </div>
    `;
 	} else {
 		// Estructura del modal en formato HTML

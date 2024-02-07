@@ -78,8 +78,8 @@ export function getRecipesFromIndexedDB() {
 
 			if (recipes.length === 0) {
 				favoritesContainer.innerHTML = `<div class="container my-4 vh-60 d-flex align-items-center justify-content-center">
-        <h3 class="text-center">Go to <a class="text-dark text-decoration-none bg-beige-hover" href="./discover.html">discover</a> and start getting your favorites</p>
-      </div>`;
+					<h3 class="text-center">Go to <a class="text-dark text-decoration-none bg-beige-hover" href="./discover.html">discover</a> and start getting your favorites</p>
+				</div>`;
 			}
 		};
 
