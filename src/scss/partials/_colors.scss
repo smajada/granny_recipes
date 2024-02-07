@@ -17,3 +17,9 @@
 .btn-brown{
    background-color: $custom_brown;
 }
+
+/* Cambia el color de las flechas del carousel a negro */
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+   filter: invert(100%);
+}
