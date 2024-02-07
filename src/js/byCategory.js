@@ -10,34 +10,34 @@ const modalContainer = document.getElementById("modal-container");
 const spinnerLoader = document.getElementById("spinner-loader");
 
 /**
- * Fetch de recetas por categoría.
+ * Fetch recipes by category.
  *
- * Obtiene y muestra recetas de una categoría específica.
- * @param {string} category - Categoría de la que se obtendrán las recetas.
- * @returns {Promise<void>} - Promesa que resuelve cuando se han obtenido y mostrado las recetas.
+ * Retrieves and displays recipes from a specific category.
+ * @param {string} category - Category from which recipes will be obtained.
+ * @returns {Promise<void>} - Promise that resolves when recipes have been obtained and displayed.
  */
 export async function getByCategory(category) {
 	const showMoreBtn = document.getElementById("showMore-btn");
 	const categoryTitle = document.getElementById("category-title");
 
-	// Realiza una solicitud a la API para obtener recetas de la categoría especificada
+	// Makes a request to the API to get recipes from the specified category
 	const promise = await fetch(`${urlRecipe}?c=${category}`);
 	const recipes = await promise.json();
 
-	// Limpia los contenedores, actualiza el título de la categoría y esconde el spinner de carga
+	// Clear the containers, update the category title, and hide the loading spinner
 	recipesContainer.innerHTML = "";
 	modalContainer.innerHTML = "";
 	categoryTitle.innerHTML = category;
 	spinnerLoader.classList.remove("d-flex");
 	spinnerLoader.classList.add("d-none");
 
-	// Itera sobre las recetas obtenidas y las muestra en la página
+	// Iterates over the obtained recipes and displays them on the page
 	recipes.meals.forEach(async (recipe) => {
-		// Obtiene detalles adicionales de la receta por su ID
+		// Get additional details of the recipe by its ID
 		const recipeById = await getById(recipe.idMeal);
 		showMoreBtn.style.display = "none";
 
-		// Agrega las tarjetas y modales al HTML
+		// Add the cards and modals to the HTML
 		recipesContainer.innerHTML += createCard(recipeById, false);
 		modalContainer.innerHTML += createModal(recipeById, false);
 	});
@@ -58,20 +58,21 @@ export async function getByCategory(category) {
 		}
 	});
 }
+
 /**
- * Fetch de las categorías.
+ * Fetch categories.
  *
- * Obtiene y lista las categorías de comidas disponibles.
- * @returns {Promise<void>} - Promesa que resuelve cuando se han obtenido y mostrado las categorías.
+ * Retrieves and lists the available food categories.
+ * @returns {Promise<void>} - Promise that resolves when the categories have been obtained and displayed.
  */
 export async function listCategories() {
-	// Verifica la existencia del contenedor de categorías
+	// Check the existence of the categories container
 	if (categoriesContainer !== null) {
-		// Realiza una solicitud a la API para obtener la lista de categorías
+		// Makes a request to the API to get the list of categories
 		const promise = await fetch(urlCategories);
 		const categories = await promise.json();
 
-		// Agrega el HTML de las categorías al contenedor
+		// Adds the HTML of the categories to the container
 		categoriesContainer.innerHTML = createCategory(categories);
 	}
 }

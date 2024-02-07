@@ -7,32 +7,32 @@ import { addRecipeToIndexedDB } from "./indexedDB";
 const spinnerLoader = document.getElementById("spinner-loader");
 
 /**
- * Fetch de recetas aleatorias.
+ * Random Recipes Fetch.
  *
- * Obtiene recetas aleatorias y las muestra en la página.
- * Utiliza la API fetch para obtener datos y las funciones createCard y createModal para generar HTML.
- * @returns {Promise<void>} - Promesa que resuelve cuando se han obtenido y mostrado las recetas.
+ * Retrieves random recipes and displays them on the page.
+ * Uses the fetch API to fetch data and the createCard and createModal functions to generate HTML.
+ * @returns {Promise<void>} - Promise that resolves when the recipes have been fetched and displayed.
  */
 export async function getByRandom() {
 	const promises = [];
 
-	// Verifica la existencia de los contenedores de recetas y modales
+	// Check the existence of the recipes and modals containers
 	if (recipesContainer !== null && modalContainer !== null) {
-		// Realiza 8 peticiones a la API de recetas de forma asíncrona
+		// Make 8 asynchronous requests to the recipes API
 		for (let i = 0; i <= 7; i++) {
 			const response = await fetch(urlRecipes);
 			const recipe = await response.json();
 			promises.push(recipe);
 		}
 
-		// Espera a que todas las promesas se resuelvan y obtiene las recetas aleatorias
+		// Wait for all promises to resolve and get the random recipes
 		const randomRecipes = await Promise.all(promises);
 
-		// Oculta el spinner de carga
+		// Hide the loading spinner
 		spinnerLoader.classList.remove("d-flex");
 		spinnerLoader.classList.add("d-none");
 
-		// Agrega el HTML de las recetas y modales al contenedor correspondiente
+		// Add the HTML of the recipes and modals to the corresponding container
 		randomRecipes.forEach((randomRecipe) => {
 			recipesContainer.innerHTML += createCard(randomRecipe, false);
 			modalContainer.innerHTML += createModal(randomRecipe, false);
