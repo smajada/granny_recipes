@@ -34,11 +34,12 @@ Visit [Granny&#39;s Recipe](https://grannys-recipes.netlify.app/) to experience 
 
 ## Screenshots
 
-![1707564748027](src\assets\screenshots\index_page_desktop.png "index ")
+![Index Page](src/assets/screenshots/index_page_desktop.png "Index Page")
 
-![1707564798791](src\assets\screenshots\discover_page_desktop.png)
+![Discover Page](src/assets/screenshots/discover_page_desktop.png "Discover Page")
 
-![1707564775182](src\assets\screenshots\discover_favorites_phone.png "favorites and discover phone screenshots")
+![Favorites and Discover Phone Screenshots](src/assets/screenshots/discover_favorites_phone.png "Favorites and Discover Phone Screenshots")
+
 
 ## License
 
